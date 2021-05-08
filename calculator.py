@@ -31,8 +31,16 @@ def exponent(x,y):
 def modulo(x,y):
     return x % y
 
+# square root
+
 def sqrroot(x):
     return math.sqrt(x)
+
+# circumference
+
+def circumference(x):
+    return (math.pi * 2 * x)
+
 
 
 
@@ -46,16 +54,22 @@ print("4. divide")
 print("5. exponent")
 print("6. modulo/remainder")
 print("7. square root")
+print("8. circumference")
 
 # Making the calculator work
 
 while True:
 
-    choice = input("Enter choice(1/2/3/4/5/6/7): ")
+    choice = input("Enter choice(1/2/3/4/5/6/7/8): ")
 
     if choice in ('7'):
         number_sqr = float(input("Enter number:"))
         print("The square root of", number_sqr, "is", sqrroot(number_sqr))
+        break
+
+    if choice in ('8'):
+        circle_radius = float(input("Radius of circle:"))
+        print("A circle with radius", circle_radius, "has a circumference of", circumference(circle_radius))
         break
 
     if choice in ('1', '2', '3', '4', '5', '6'):
