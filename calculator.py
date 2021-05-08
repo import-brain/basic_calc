@@ -65,6 +65,7 @@ print("7. square root")
 print("8. circumference")
 print("9. area of circle")
 
+
 # Making the calculator work
 
 while True:
@@ -85,6 +86,7 @@ while True:
         circle_radius = float(input("Radius of circle:"))
         print("A circle with radius", circle_radius, "has an area of", circle_area(circle_radius))
         break
+
 
     if choice in ('1', '2', '3', '4', '5', '6'):
         number_1 = float(input("Enter first number: "))
