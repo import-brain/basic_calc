@@ -13,17 +13,21 @@ def multiply(x,y):
 def divide(x,y):
     return x / y
 
+def exponent(x,y):
+    return x ** y
+
 print("Select operation")
 print("1. add")
 print("2. subtract")
 print("3. multiply")
 print("4. divide")
+print("5. exponent")
 
 while True:
 
-    choice = input("Enter choice(1/2/3/4): ")
+    choice = input("Enter choice(1/2/3/4/5): ")
 
-    if choice in ('1', '2', '3', '4'):
+    if choice in ('1', '2', '3', '4', '5'):
         number_1 = float(input("Enter first number: "))
         number_2 = float(input("Enter second number: "))
 
@@ -38,6 +42,9 @@ while True:
 
         elif choice == '4':
             print(number_1, "/", number_2, "=", divide(number_1, number_2))
+
+        elif choice == '5':
+            print(number_1, "to the power of", number_2, "=", exponent(number_1, number_2))
         break
     else:
         print("Invalid input: select operation")
