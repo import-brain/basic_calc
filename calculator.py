@@ -47,6 +47,7 @@ def circle_area(x):
     return (pi * (x**2) )
 
 
+
 pi = 3.14
 
 
@@ -64,6 +65,7 @@ print("6. modulo/remainder")
 print("7. square root")
 print("8. circumference")
 print("9. area of circle")
+
 
 
 # Making the calculator work
@@ -88,7 +90,7 @@ while True:
         break
 
 
-    if choice in ('1', '2', '3', '4', '5', '6'):
+    if choice in ('1', '2', '3', '4', '5', '6','10'):
         number_1 = float(input("Enter first number: "))
         number_2 = float(input("Enter second number: "))
 
