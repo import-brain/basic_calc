@@ -39,7 +39,7 @@ def sqrroot(x):
 # circumference
 
 def circumference(x):
-    return (pi * 2 * x)
+    return (pi * x)
 
 pi = 3.14
 
@@ -70,8 +70,8 @@ while True:
         break
 
     if choice in ('8'):
-        circle_radius = float(input("Radius of circle:"))
-        print("A circle with radius", circle_radius, "has a circumference of", circumference(circle_radius))
+        circle_diameter = float(input("Diameter of circle:"))
+        print("A circle with diameter", circle_diameter, "has a circumference of", circumference(circle_diameter))
         break
 
     if choice in ('1', '2', '3', '4', '5', '6'):
