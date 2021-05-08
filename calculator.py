@@ -1,23 +1,34 @@
+# adding
+
 def add(x,y):
     return x + y
 
+# subtracting
 
 def subtract(x,y):
     return x - y
 
+# multiplying
 
 def multiply(x,y):
     return x * y
 
+# dividng
 
 def divide(x,y):
     return x / y
 
+# exponentiation
+
 def exponent(x,y):
     return x ** y
 
+# modulo/remainder/whatever you want to call it
+
 def modulo(x,y):
     return x % y
+
+# User prompt to select operation
 
 print("Select operation")
 print("1. add")
@@ -26,6 +37,8 @@ print("3. multiply")
 print("4. divide")
 print("5. exponent")
 print("6. modulo/remainder")
+
+# Making the calculator work
 
 while True:
 
@@ -55,5 +68,7 @@ while True:
         break
     else:
         print("Invalid input: select operation")
+
+# :)
 
 input("Thank you for using my calculator! Press enter to exit")
