@@ -1,4 +1,4 @@
-# noob_calculator
+# basic_calc
 
 It's a calculator
 
