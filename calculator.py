@@ -39,7 +39,9 @@ def sqrroot(x):
 # circumference
 
 def circumference(x):
-    return (math.pi * 2 * x)
+    return (pi * 2 * x)
+
+pi = 3.14
 
 
 
