@@ -56,6 +56,7 @@ while True:
     if choice in ('7'):
         number_sqr = float(input("Enter number:"))
         print("The square root of", number_sqr, "is", sqrroot(number_sqr))
+        break
 
     if choice in ('1', '2', '3', '4', '5', '6'):
         number_1 = float(input("Enter first number: "))
