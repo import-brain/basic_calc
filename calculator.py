@@ -41,6 +41,13 @@ def sqrroot(x):
 def circumference(x):
     return (pi * x)
 
+# area of circle
+
+def circle_area(x):
+    return (pi * (x**2) )
+
+
+
 pi = 3.14
 
 
@@ -57,12 +64,15 @@ print("5. exponent")
 print("6. modulo/remainder")
 print("7. square root")
 print("8. circumference")
+print("9. area of circle")
+
+
 
 # Making the calculator work
 
 while True:
 
-    choice = input("Enter choice(1/2/3/4/5/6/7/8): ")
+    choice = input("Enter choice(1/2/3/4/5/6/7/8/9): ")
 
     if choice in ('7'):
         number_sqr = float(input("Enter number:"))
@@ -74,7 +84,13 @@ while True:
         print("A circle with diameter", circle_diameter, "has a circumference of", circumference(circle_diameter))
         break
 
-    if choice in ('1', '2', '3', '4', '5', '6'):
+    if choice in ('9'):
+        circle_radius = float(input("Radius of circle:"))
+        print("A circle with radius", circle_radius, "has an area of", circle_area(circle_radius))
+        break
+
+
+    if choice in ('1', '2', '3', '4', '5', '6','10'):
         number_1 = float(input("Enter first number: "))
         number_2 = float(input("Enter second number: "))
 
