@@ -16,18 +16,22 @@ def divide(x,y):
 def exponent(x,y):
     return x ** y
 
+def modulo(x,y):
+    return x % y
+
 print("Select operation")
 print("1. add")
 print("2. subtract")
 print("3. multiply")
 print("4. divide")
 print("5. exponent")
+print("6. modulo/remainder")
 
 while True:
 
-    choice = input("Enter choice(1/2/3/4/5): ")
+    choice = input("Enter choice(1/2/3/4/5/6): ")
 
-    if choice in ('1', '2', '3', '4', '5'):
+    if choice in ('1', '2', '3', '4', '5', '6'):
         number_1 = float(input("Enter first number: "))
         number_2 = float(input("Enter second number: "))
 
@@ -45,6 +49,9 @@ while True:
 
         elif choice == '5':
             print(number_1, "to the power of", number_2, "=", exponent(number_1, number_2))
+
+        elif choice == '6':
+            print("The remainder/modulo of", number_1, "and", number_2, "is", modulo(number_1,number_2))
         break
     else:
         print("Invalid input: select operation")
