@@ -51,7 +51,6 @@ def calculator():
     def circle_area(x):
         return pi * (x ** 2)
 
-
     pi = 3.14
 
     # User prompt to select operation
@@ -76,17 +75,17 @@ def calculator():
         if choice in '7':
             number_sqr = float(input("Enter number:"))
             print("The square root of", number_sqr, "is", sqrroot(number_sqr))
-            break
+            exit_flow()
 
         elif choice in '8':
             circle_diameter = float(input("Diameter of circle:"))
             print("A circle with diameter", circle_diameter, "has a circumference of", circumference(circle_diameter))
-            break
+            exit_flow()
 
         elif choice in '9':
             circle_radius = float(input("Radius of circle:"))
             print("A circle with radius", circle_radius, "has an area of", circle_area(circle_radius))
-            break
+            exit_flow()
 
         elif choice in ('1', '2', '3', '4', '5', '6'):
             number_1 = float(input("Enter first number: "))
@@ -109,20 +108,27 @@ def calculator():
 
             elif choice == '6':
                 print("The remainder/modulo of", number_1, "and", number_2, "is", modulo(number_1, number_2))
-            break
+            exit_flow()
 
         else:
             print("Invalid operation selected, please try again")
             time.sleep(2)
             calculator()
 
+
+def exit_flow():
     exit_choice = input("Exit? Or perform another calculation? (Y for another calculation, N for exit) ")
 
     if exit_choice in ('y', 'Y'):
         calculator()
     elif exit_choice in ('N', 'n'):
         sys.exit()
+    else:
+        print("Invalid answer, please try again")
+        time.sleep(2)
+        exit_flow()
 
 
 calculator()
+exit_flow()
 # :)
