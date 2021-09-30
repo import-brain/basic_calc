@@ -13,7 +13,7 @@ Download the latest release on the right of the main repo page, extract it using
 Please follow the established naming conventions present in the code, it makes it easier for all of us to maintain this project.
 
 ## TODO
-1. Add conversion to and from radians/degrees
-2. Add trigonometric functions (sin, cos, tan, etc.)
-3. Create new release (use PyInstaller --onefile argument to create less messy rar files)
-4. Possibly in the future: Rebuild app using TKinter
+- [ ] Add conversion to and from radians/degrees
+- [ ] Add trigonometric functions (sin, cos, tan, etc.)
+- [ ] Create new release (use PyInstaller --onefile argument to create less messy rar files)
+- [ ] Possibly in the future: Rebuild app using TKinter
