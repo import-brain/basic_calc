@@ -105,30 +105,35 @@ def calculator():
             type_choice = rad_or_degree()
             x = float(input("Number to be sined: "))
             if type_choice == 0:
-                print("The sine of ", x, " is ", round(sin(math.radians(x)), 3))
+                print("The sine of ", x, " degrees is ", round(sin(math.radians(x)), 3))
             elif type_choice == 1:
-                print("The sine of ", x, " is ", round(sin(x), 3))
+                print("The sine of ", x, " radians is ", round(sin(x), 3))
             exit_flow() 
 
         elif choice == '11':
             type_choice = rad_or_degree()
             x = float(input("Number to be cosined: "))
             if type_choice == 0:
-                print("The cosine of ", x, " is ", round(cos(math.radians(x)), 3))
+                print("The cosine of ", x, " degrees is ", round(cos(math.radians(x)), 3))
             elif type_choice == 1:
-                print("The cosine of ", x, " is ", round(cos(x), 3))
+                print("The cosine of ", x, " radians is ", round(cos(x), 3))
             exit_flow()
 
         elif choice == '12':
             type_choice = rad_or_degree()
             x = float(input("Number to be tanned: "))
+            
             if type_choice == 0:
-                print("The tangent of ", x, " is ", round(tan(math.radians(x)), 3))
+                if cos(math.radians(x)) == 0:
+                    print("Tangent of ", x, " degrees is undefined")
+                else:
+                    print("The tangent of ", x, " degrees is ", round(tan(math.radians(x)), 3))
             elif type_choice == 1:
-                print("The tangent of ", x, " is ", round(tan(x), 3))
+                if cos(x) == 0:
+                    print("Tangent of ", x, " radians is undefined")
+                else:
+                    print("The tangent of ", x, " radians is ", round(tan(x), 3))
             exit_flow()
-
-        # todo: where cos(x) = 0, tan(x) is undefined: write logic to throw error for this
 
         elif choice in ('1', '2', '3', '4', '5', '6'):
             number_1 = float(input("Enter first number: "))
