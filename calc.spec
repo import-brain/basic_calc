@@ -5,7 +5,7 @@ block_cipher = None
 
 
 a = Analysis(['calc.py'],
-             pathex=['/home/eric/Documents/GitHub/basic_calc'],
+             pathex=['C:\\Users\\aweso\\OneDrive\\Documents\\GitHub\\noob_calculator'],
              binaries=[],
              datas=[],
              hiddenimports=[],
