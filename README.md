@@ -1,9 +1,7 @@
 # basic_calc
 
-It's a calculator
+## Description
 
-Features:
+BasicCalc is a small, command-line calculator that performs the standard four mathematical functions and more (remainder, circumference of circle given radius, etc.) written using Python3. 
 
-add, subtract, multiply, divide, exponent, modulo/remainder, square root, circumference, area of circle
 
-All operators using pi have pi = 3.14
