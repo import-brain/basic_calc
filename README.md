@@ -16,5 +16,5 @@ Please follow the established naming conventions present in the code, it makes i
 - [X] Add conversion to and from radians/degrees
 - [X] Add trigonometric functions (sin, cos, tan, etc.)
 - [ ] Create new release (use PyInstaller --onefile argument to create less messy rar files)
-- [ ] Make linux binaries/executables with next release
+- [X] Make linux binaries/executables with next release
 - [ ] Possibly in the future: Rebuild app using TKinter
