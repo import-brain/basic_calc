@@ -104,12 +104,11 @@ def calculator():
         # todo: implement error checking for radian and deg switching (what if user selects neither 0 nor 1)
 
         elif choice == '10':
-            rad_or_degree = input("Degrees or radians? Enter 0 for degrees, 1 for radians: ")
             x = float(input("Number to be sined: "))
             if rad_or_degree == '0':
                 print("The sine of ", x, " is ", round(sin(math.radians(x)), 3))
             elif rad_or_degree == '1':
-                print("The sine of ", x, " is ", sin(x))
+                print("The sine of ", x, " is ", round(sin(x), 3))
             exit_flow() 
 
         elif choice == '11':
@@ -166,6 +165,17 @@ def exit_flow():
         print("Invalid answer, please try again")
         time.sleep(2)
         exit_flow()
+
+def rad_or_degree():
+    rad_or_degree = input("Degrees or radians? Enter 0 for degrees, 1 for radians: ")
+
+    if rad_or_degree not in '1' or '0':
+        print("Must select 1 or 0")
+        time.sleep(2)
+        rad_or_degree()
+    else
+        return rad_or_degree
+
 
 
 calculator()
