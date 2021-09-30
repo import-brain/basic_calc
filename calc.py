@@ -106,7 +106,15 @@ def calculator():
             print("The sin of ", x, " is ", sin(x))
             exit_flow()
 
-        # todo: write logic for sin cos tan
+        elif choice == '11':
+            x = float(input("Number to be cosined: "))
+            print("The cos of ", x, " is ", cos(x))
+            exit_flow()
+
+        elif choice == '12':
+            x = float(input("Number to be tanned: "))
+            print("The tan of ", x, " is ", tan(x))
+            exit_flow()
         # todo: write logic to switch between degrees and radians for trig functions
         # todo: where cos(x) = 0, tan(x) is undefined: write logic to throw error for this
 
