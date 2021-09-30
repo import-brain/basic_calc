@@ -62,6 +62,12 @@ def calculator():
     def tan(x):
         return math.tan(x)
 
+    def rad(x):
+        return math.radians(x)
+
+    def deg(x):
+        return math.degrees(x)
+
     pi = 3.14
 
     # User prompt to select operation
@@ -79,12 +85,14 @@ def calculator():
     print("10. sine")
     print("11. cosine")
     print("12. tangent")
+    print("13. convert degrees to radians")
+    print("14. convert radians to degrees")
 
     # Making the calculator work
 
     while True:
 
-        choice = input("Enter choice(1/2/3/4/5/6/7/8/9/10/11/12): ")
+        choice = input("Enter choice(1/2/3/4/5/6/7/8/9/10/11/12/13/14): ")
 
         if choice == '7':
             number_sqr = float(input("Enter number:"))
@@ -133,6 +141,16 @@ def calculator():
                     print("Tangent of ", x, " radians is undefined")
                 else:
                     print("The tangent of ", x, " radians is ", round(tan(x), 3))
+            exit_flow()
+
+        elif choice == '13':
+            measure = float(input("Degree measure to be converted to radians: "))
+            print(measure, " degrees converted to radians is", rad((measure)), " radians ")
+            exit_flow()
+
+        elif choice == '14':
+            measure = float(input("Radian measure to be converted to degrees: "))
+            print(measure, " radians converted to degrees is", deg(measure / 3.14 * math.pi), " degrees ")
             exit_flow()
 
         elif choice in ('1', '2', '3', '4', '5', '6'):
