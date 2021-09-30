@@ -167,13 +167,23 @@ def calculator():
                 print(number_1, "*", number_2, "=", multiply(number_1, number_2))
 
             elif choice == '4':
-                print(number_1, "/", number_2, "=", divide(number_1, number_2))
+                try:
+                    x = divide(number_1, number_2)
+                except ZeroDivisionError:
+                    print("Oops! Numbers cannot be divided by 0")
+                else:
+                    print(number_1, "/", number_2, "=", divide(number_1, number_2))
 
             elif choice == '5':
                 print(number_1, "to the power of", number_2, "=", exponent(number_1, number_2))
 
             elif choice == '6':
-                print("The remainder/modulo of", number_1, "and", number_2, "is", modulo(number_1, number_2))
+                try:
+                    x = modulo(number_1, number_2)
+                except ZeroDivisionError:
+                    print("Oops! Numbers cannot be divided by 0")
+                else:
+                    print("The remainder/modulo of", number_1, "and", number_2, "is", modulo(number_1, number_2))
             exit_flow()
 
         else:
