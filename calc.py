@@ -101,7 +101,13 @@ def calculator():
             print("A circle with radius", circle_radius, "has an area of", circle_area(circle_radius))
             exit_flow()
 
+        elif choice in '10':
+            x = float(input("Number to be sined: "))
+            print("The sin of ", x, " is ", sin(x))
+            exit_flow()
+
         # todo: write logic for sin cos tan
+        # todo: write logic to switch between degrees and radians for trig functions
         # todo: where cos(x) = 0, tan(x) is undefined: write logic to throw error for this
 
         elif choice in ('1', '2', '3', '4', '5', '6'):
