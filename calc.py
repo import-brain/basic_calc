@@ -101,20 +101,28 @@ def calculator():
             print("A circle with radius", circle_radius, "has an area of", circle_area(circle_radius))
             exit_flow()
 
+        # todo: implement error checking for radian and deg switching (what if user selects neither 0 nor 1)
+
         elif choice == '10':
+            rad_or_degree = input("Degrees or radians? Enter 0 for degrees, 1 for radians: ")
             x = float(input("Number to be sined: "))
-            print("The sin of ", x, " is ", sin(x))
-            exit_flow()
+            if rad_or_degree == '0':
+                print("The sine of ", x, " is ", round(sin(math.radians(x)), 3))
+            elif rad_or_degree == '1':
+                print("The sine of ", x, " is ", sin(x))
+            exit_flow() 
 
         elif choice == '11':
             x = float(input("Number to be cosined: "))
-            print("The cos of ", x, " is ", cos(x))
+            print("The cosine of ", x, " is ", cos(x))
             exit_flow()
 
         elif choice == '12':
             x = float(input("Number to be tanned: "))
-            print("The tan of ", x, " is ", tan(x))
+            print("The tangent of ", x, " is ", tan(x))
             exit_flow()
+
+        
         # todo: write logic to switch between degrees and radians for trig functions
         # todo: where cos(x) = 0, tan(x) is undefined: write logic to throw error for this
 
