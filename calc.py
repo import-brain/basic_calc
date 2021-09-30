@@ -51,6 +51,17 @@ def calculator():
     def circle_area(x):
         return pi * (x ** 2)
 
+    # sin, cos, tan
+
+    def sin(x):
+        return math.sin(x)
+
+    def cos(x):
+        return math.cos(x)
+
+    def tan(x):
+        return math.tan(x)
+
     pi = 3.14
 
     # User prompt to select operation
@@ -65,12 +76,15 @@ def calculator():
     print("7. square root")
     print("8. circumference")
     print("9. area of circle")
+    print("10. sine")
+    print("11. cosine")
+    print("12. tangent")
 
     # Making the calculator work
 
     while True:
 
-        choice = input("Enter choice(1/2/3/4/5/6/7/8/9): ")
+        choice = input("Enter choice(1/2/3/4/5/6/7/8/9/10/11/12): ")
 
         if choice in '7':
             number_sqr = float(input("Enter number:"))
@@ -86,6 +100,9 @@ def calculator():
             circle_radius = float(input("Radius of circle:"))
             print("A circle with radius", circle_radius, "has an area of", circle_area(circle_radius))
             exit_flow()
+
+        # todo: write logic for sin cos tan
+        # todo: where cos(x) = 0, tan(x) is undefined: write logic to throw error for this
 
         elif choice in ('1', '2', '3', '4', '5', '6'):
             number_1 = float(input("Enter first number: "))
