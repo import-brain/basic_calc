@@ -86,22 +86,22 @@ def calculator():
 
         choice = input("Enter choice(1/2/3/4/5/6/7/8/9/10/11/12): ")
 
-        if choice in '7':
+        if choice == '7':
             number_sqr = float(input("Enter number:"))
             print("The square root of", number_sqr, "is", sqrroot(number_sqr))
             exit_flow()
 
-        elif choice in '8':
+        elif choice == '8':
             circle_diameter = float(input("Diameter of circle:"))
             print("A circle with diameter", circle_diameter, "has a circumference of", circumference(circle_diameter))
             exit_flow()
 
-        elif choice in '9':
+        elif choice == '9':
             circle_radius = float(input("Radius of circle:"))
             print("A circle with radius", circle_radius, "has an area of", circle_area(circle_radius))
             exit_flow()
 
-        elif choice in '10':
+        elif choice == '10':
             x = float(input("Number to be sined: "))
             print("The sin of ", x, " is ", sin(x))
             exit_flow()
