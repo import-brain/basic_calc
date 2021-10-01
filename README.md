@@ -6,7 +6,7 @@ BasicCalc is a small, command-line calculator that performs the standard four ma
 
 ## Installation
 
-Download the latest release on the right of the main repo page, extract it using an unzipper (WinRar, 7Zip, unzip command for Linux aficionados, etc.), and scroll down until you find a file named "calc.exe". This file is the calculator. Enjoy! :)
+Download the latest release on the right of the main repo page, extract it using an unzipper (WinRar, 7Zip, unzip command for Linux aficionados, etc.), and scroll down until you find a file named something similar to "calc.exe" for your operation system. This file is the calculator. Enjoy! :)
 
 ## CONTRIBUTORS
 
