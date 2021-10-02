@@ -17,4 +17,5 @@ Please follow the established naming conventions present in the code, it makes i
 - [X] Add trigonometric functions (sin, cos, tan, etc.)
 - [X] Create new release (use PyInstaller --onefile argument to create less messy rar files)
 - [X] Make linux binaries/executables with next release
+- [ ] Add ability for program to save all calculations done to a file (python read/write)
 - [ ] Possibly in the future: Rebuild app using TKinter
