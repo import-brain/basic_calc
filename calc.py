@@ -68,6 +68,18 @@ def calculator():
     def deg(x):
         return math.degrees(x)
 
+    def rad_or_degree(): # rad or degree choice picker function
+        rad_or_degree = input("Degrees or radians? Enter 0 for degrees, 1 for radians: ")
+
+        if rad_or_degree != '1' and rad_or_degree != '0':
+            print("Must select 1 or 0")
+            time.sleep(2)
+            rad_or_degree()
+        elif rad_or_degree == '1':
+            return 1
+        elif rad_or_degree == '0':
+            return 0
+
     pi = 3.14
 
     # User prompt to select operation
@@ -91,6 +103,8 @@ def calculator():
     # Making the calculator work
 
     while True:
+
+        # For every choice, execute operations based on user input
 
         choice = input("Enter choice(1/2/3/4/5/6/7/8/9/10/11/12/13/14): ")
 
@@ -167,7 +181,7 @@ def calculator():
                 print(number_1, "*", number_2, "=", multiply(number_1, number_2))
 
             elif choice == '4':
-                try:
+                try: # if user attempts to divide by 0, return error message
                     x = divide(number_1, number_2)
                 except ZeroDivisionError:
                     print("Oops! Numbers cannot be divided by 0")
@@ -178,7 +192,7 @@ def calculator():
                 print(number_1, "to the power of", number_2, "=", exponent(number_1, number_2))
 
             elif choice == '6':
-                try:
+                try: # if user attempts to divide by 0, return error message
                     x = modulo(number_1, number_2)
                 except ZeroDivisionError:
                     print("Oops! Numbers cannot be divided by 0")
@@ -186,37 +200,46 @@ def calculator():
                     print("The remainder/modulo of", number_1, "and", number_2, "is", modulo(number_1, number_2))
             exit_flow()
 
-        else:
+        else: #  if operation choice is not within the range of 1-14, return error message to user and prompt them again
             print("Invalid operation selected, please try again")
             time.sleep(2)
             calculator()
 
 
 def exit_flow():
+    save_choice = input("Do you wish to save your calculation to local storage? (Y for yes, N for no) ")
+
+    if save_choice in ('y', 'Y', 'yes', 'Yes'):
+
+
     exit_choice = input("Exit? Or perform another calculation? (Y for another calculation, N for exit) ")
 
-    if exit_choice in ('y', 'Y'):
+    if exit_choice in ('y', 'Y', 'yes', 'Yes'):
         calculator()
-    elif exit_choice in ('N', 'n'):
+    elif exit_choice in ('N', 'n', 'No', 'no'):
         sys.exit()
     else:
         print("Invalid answer, please try again")
         time.sleep(2)
         exit_flow()
 
-def rad_or_degree():
-    rad_or_degree = input("Degrees or radians? Enter 0 for degrees, 1 for radians: ")
+def write_file(what_to_write: str):
+    try: # try to create file, if file already exists (IOError), go into append mode, and if no error, also go into append mode
+        save_file = open('calculations.txt', 'x')
+    except IOError:
+        with open('calculations.txt', mode='a') as file_object:
+            print(what_to_write, file=file_object)
+    else:
+        with open('calculations.txt', mode='a') as file_object:
+            print(what_to_write, file=file_object)
 
-    if rad_or_degree != '1' and rad_or_degree != '0':
-        print("Must select 1 or 0")
-        time.sleep(2)
-        rad_or_degree()
-    elif rad_or_degree == '1':
-        return 1
-    elif rad_or_degree == '0':
-        return 0
+def read_file():
+    with open('calculations.txt', mode='r') as file_object:
+        # todo: implement ability for user to pick how many previous calculations to print, error handling for if user picks more lines than the file contains
+        for line in file_object:
+            print(line, end = '')
 
-
+    
 
 calculator()
 exit_flow()
