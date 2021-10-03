@@ -8,7 +8,9 @@ BasicCalc is a small, command-line calculator that performs the standard four ma
 
 Download the latest release on the right of the main repo page, extract it using an unzipper (WinRar, 7Zip, unzip command for Linux aficionados, etc.), and scroll down until you find a file named something similar to "calc.exe" for your operating system. This file is the calculator. Enjoy! :)
 
-## CONTRIBUTORS
+## CONTRIBUTORS/CONTRIBUTING
+
+Please fork the project, create a new branch in the fork, and PR request changes from the branch you made in your fork to the **main** branch in this repo.
 
 Please follow the established naming conventions present in the code, it makes it easier for all of us to maintain this project.
 
