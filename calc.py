@@ -111,37 +111,37 @@ def calculator():
         if choice == '7':
             number_sqr = float(input("Enter number:"))
             print("The square root of", number_sqr, "is", sqrroot(number_sqr))
-            exit_flow("The square root of" + number_sqr + "is" + sqrroot(number_sqr))
+            exit_flow("The square root of" + str(number_sqr) + "is" + str(sqrroot(number_sqr)))
 
         elif choice == '8':
             circle_diameter = float(input("Diameter of circle:"))
             print("A circle with diameter", circle_diameter, "has a circumference of", circumference(circle_diameter))
-            exit_flow("A circle with diameter" + circle_diameter + "has a circumference of" + circumference(circle_diameter))
+            exit_flow("A circle with diameter" + str(circle_diameter) + "has a circumference of" + str(circumference(circle_diameter)))
 
         elif choice == '9':
             circle_radius = float(input("Radius of circle:"))
             print("A circle with radius", circle_radius, "has an area of", circle_area(circle_radius))
-            exit_flow("A circle with radius" + circle_radius + "has an area of" + circle_area(circle_radius))
+            exit_flow("A circle with radius" + str(circle_radius) + "has an area of" + str(circle_area(circle_radius)))
 
         elif choice == '10':
             type_choice = rad_or_degree()
             x = float(input("Number to be sined: "))
             if type_choice == 0:
                 print("The sine of ", x, " degrees is ", round(sin(math.radians(x)), 3))
-                exit_flow("The sine of " + x + " degrees is " + round(sin(math.radians(x)), 3))
+                exit_flow("The sine of " + str(x) + " degrees is " + str(round(sin(math.radians(x)), 3)))
             elif type_choice == 1:
                 print("The sine of ", x, " radians is ", round(sin(x), 3))
-                exit_flow("The sine of " + x + " radians is " + round(sin(x), 3)) 
+                exit_flow("The sine of " + str(x) + " radians is " + str(round(sin(x), 3))) 
 
         elif choice == '11':
             type_choice = rad_or_degree()
             x = float(input("Number to be cosined: "))
             if type_choice == 0:
                 print("The cosine of ", x, " degrees is ", round(cos(math.radians(x)), 3))
-                exit_flow("The cosine of " + x + " degrees is " + round(cos(math.radians(x)), 3))
+                exit_flow("The cosine of " + str(x) + " degrees is " + str(round(cos(math.radians(x)), 3)))
             elif type_choice == 1:
                 print("The cosine of ", x, " radians is ", round(cos(x), 3))
-                exit_flow("The cosine of " + x + " radians is " + round(cos(x), 3))
+                exit_flow("The cosine of " + str(x) + " radians is " + str(round(cos(x), 3)))
 
         elif choice == '12':
             type_choice = rad_or_degree()
@@ -150,27 +150,27 @@ def calculator():
             if type_choice == 0:
                 if cos(math.radians(x)) == 0:
                     print("Tangent of ", x, " degrees is undefined")
-                    exit_flow("Tangent of " + x + " degrees is undefined")
+                    exit_flow("Tangent of " + str(x) + " degrees is undefined")
                 else:
                     print("The tangent of ", x, " degrees is ", round(tan(math.radians(x)), 3))
-                    exit_flow("The tangent of " + x + " degrees is " + round(tan(math.radians(x)), 3))
+                    exit_flow("The tangent of " + str(x) + " degrees is " + str(round(tan(math.radians(x)), 3)))
             elif type_choice == 1:
                 if cos(x) == 0:
                     print("Tangent of ", x, " radians is undefined")
-                    exit_flow("Tangent of " + x + " radians is undefined")
+                    exit_flow("Tangent of " + str(x) + " radians is undefined")
                 else:
                     print("The tangent of ", x, " radians is ", round(tan(x), 3))
-                    exit_flow("The tangent of " + x + " radians is " + round(tan(x), 3))
+                    exit_flow("The tangent of " + str(x) + " radians is " + str(round(tan(x), 3)))
 
         elif choice == '13':
             measure = float(input("Degree measure to be converted to radians: "))
             print(measure, " degrees converted to radians is", rad((measure)), " radians ")
-            exit_flow(measure + " degrees converted to radians is" + rad((measure)) + " radians ")
+            exit_flow(str(measure) + " degrees converted to radians is " + str(rad((measure))) + " radians ")
 
         elif choice == '14':
             measure = float(input("Radian measure to be converted to degrees: "))
             print(measure, " radians converted to degrees is", deg(measure / 3.14 * math.pi), " degrees ")
-            exit_flow(measure + " radians converted to degrees is" + deg(measure / 3.14 * math.pi) + " degrees ")
+            exit_flow(str(measure) + " radians converted to degrees is " + str(deg(measure / 3.14 * math.pi)) + " degrees ")
 
         elif choice in ('1', '2', '3', '4', '5', '6'):
             number_1 = float(input("Enter first number: "))
@@ -178,15 +178,15 @@ def calculator():
 
             if choice == '1':
                 print(number_1, "+", number_2, "=", add(number_1, number_2))
-                exit_flow(number_1 + "+" + number_2 + "=" + add(number_1, number_2))
+                exit_flow(str(number_1) + "+" + str(number_2) + "=" + str(add(number_1, number_2)))
 
             elif choice == '2':
                 print(number_1, "-", number_2, "=", subtract(number_1, number_2))
-                exit_flow(number_1 + "-" + number_2 + "=" + subtract(number_1, number_2))
+                exit_flow(str(number_1) + "-" + str(number_2) + "=" + str(subtract(number_1, number_2)))
 
             elif choice == '3':
                 print(number_1, "*", number_2, "=", multiply(number_1, number_2))
-                exit_flow(number_1 + "*" + number_2 + "=" + multiply(number_1, number_2))
+                exit_flow(str(number_1) + "*" + str(number_2) + "=" + str(multiply(number_1, number_2)))
 
             elif choice == '4':
                 try: # if user attempts to divide by 0, return error message
@@ -195,11 +195,11 @@ def calculator():
                     print("Oops! Numbers cannot be divided by 0")
                 else:
                     print(number_1, "/", number_2, "=", divide(number_1, number_2))
-                    exit_flow(number_1 + "/" + number_2 + "=" + divide(number_1, number_2))
+                    exit_flow(str(number_1) + "/" + str(number_2) + "=" + str(divide(number_1, number_2)))
 
             elif choice == '5':
                 print(number_1, "to the power of", number_2, "=", exponent(number_1, number_2))
-                exit_flow(number_1 + "to the power of" + number_2 + "=" + exponent(number_1, number_2))
+                exit_flow(str(number_1) + "to the power of" + str(number_2) + "=" + str(exponent(number_1, number_2)))
             elif choice == '6':
                 try: # if user attempts to divide by 0, return error message
                     x = modulo(number_1, number_2)
@@ -207,7 +207,7 @@ def calculator():
                     print("Oops! Numbers cannot be divided by 0")
                 else:
                     print("The remainder/modulo of", number_1, "and", number_2, "is", modulo(number_1, number_2))
-                    exit_flow("The remainder/modulo of" + number_1 + "and" + number_2 + "is" + modulo(number_1, number_2))
+                    exit_flow("The remainder/modulo of" + str(number_1) + "and" + str(number_2) + "is" + str(modulo(number_1, number_2)))
 
         else: #  if operation choice is not within the range of 1-14, return error message to user and prompt them again
             print("Invalid operation selected, please try again")
@@ -220,6 +220,8 @@ def exit_flow(printed_message: str):
 
     if save_choice in ('y', 'Y', 'yes', 'Yes'):
         write_file(printed_message)
+        print("Calculation saved to calculations.txt")
+        time.sleep(1)
     elif save_choice in ('n', 'N', 'no', 'No'):
         pass
     
@@ -239,10 +241,10 @@ def write_file(what_to_write: str):
         save_file = open('calculations.txt', 'x')
     except IOError:
         with open('calculations.txt', mode='a') as file_object:
-            print(what_to_write, file=calculations.txt)
+            print(what_to_write, file=file_object)
     else:
         with open('calculations.txt', mode='a') as file_object:
-            print(what_to_write, file=calculations.txt)
+            print(what_to_write, file=file_object)
 
 def read_file():
     with open('calculations.txt', mode='r') as file_object:
