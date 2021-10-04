@@ -100,6 +100,7 @@ def calculator():
     print("12. tangent")
     print("13. convert degrees to radians")
     print("14. convert radians to degrees")
+    print("15. read previous calculations")
 
     # Making the calculator work
 
@@ -107,8 +108,45 @@ def calculator():
         # todo: fix spacing issues in output to file
         # For every choice, execute operations based on user input
 
-        choice = input("Enter choice(1/2/3/4/5/6/7/8/9/10/11/12/13/14): ")
+        choice = input("Enter choice(1/2/3/4/5/6/7/8/9/10/11/12/13/14/15): ")
 
+        if choice in ('1', '2', '3', '4', '5', '6'):
+            number_1 = float(input("Enter first number: "))
+            number_2 = float(input("Enter second number: "))
+
+            if choice == '1':
+                print(number_1, "+", number_2, "=", add(number_1, number_2))
+                exit_flow(str(number_1) + "+" + str(number_2) + "=" + str(add(number_1, number_2)))
+
+            elif choice == '2':
+                print(number_1, "-", number_2, "=", subtract(number_1, number_2))
+                exit_flow(str(number_1) + "-" + str(number_2) + "=" + str(subtract(number_1, number_2)))
+
+            elif choice == '3':
+                print(number_1, "*", number_2, "=", multiply(number_1, number_2))
+                exit_flow(str(number_1) + "*" + str(number_2) + "=" + str(multiply(number_1, number_2)))
+
+            elif choice == '4':
+                try: # if user attempts to divide by 0, return error message
+                    x = divide(number_1, number_2)
+                except ZeroDivisionError:
+                    print("Oops! Numbers cannot be divided by 0")
+                else:
+                    print(number_1, "/", number_2, "=", divide(number_1, number_2))
+                    exit_flow(str(number_1) + "/" + str(number_2) + "=" + str(divide(number_1, number_2)))
+
+            elif choice == '5':
+                print(number_1, "to the power of", number_2, "=", exponent(number_1, number_2))
+                exit_flow(str(number_1) + "to the power of" + str(number_2) + "=" + str(exponent(number_1, number_2)))
+            elif choice == '6':
+                try: # if user attempts to divide by 0, return error message
+                    x = modulo(number_1, number_2)
+                except ZeroDivisionError:
+                    print("Oops! Numbers cannot be divided by 0")
+                else:
+                    print("The remainder/modulo of", number_1, "and", number_2, "is", modulo(number_1, number_2))
+                    exit_flow("The remainder/modulo of" + str(number_1) + "and" + str(number_2) + "is" + str(modulo(number_1, number_2)))
+        
         if choice == '7':
             number_sqr = float(input("Enter number:"))
             print("The square root of", number_sqr, "is", sqrroot(number_sqr))
@@ -173,43 +211,9 @@ def calculator():
             print(measure, " radians converted to degrees is", deg(measure / 3.14 * math.pi), " degrees ")
             exit_flow(str(measure) + " radians converted to degrees is " + str(deg(measure / 3.14 * math.pi)) + " degrees ")
 
-        elif choice in ('1', '2', '3', '4', '5', '6'):
-            number_1 = float(input("Enter first number: "))
-            number_2 = float(input("Enter second number: "))
-
-            if choice == '1':
-                print(number_1, "+", number_2, "=", add(number_1, number_2))
-                exit_flow(str(number_1) + "+" + str(number_2) + "=" + str(add(number_1, number_2)))
-
-            elif choice == '2':
-                print(number_1, "-", number_2, "=", subtract(number_1, number_2))
-                exit_flow(str(number_1) + "-" + str(number_2) + "=" + str(subtract(number_1, number_2)))
-
-            elif choice == '3':
-                print(number_1, "*", number_2, "=", multiply(number_1, number_2))
-                exit_flow(str(number_1) + "*" + str(number_2) + "=" + str(multiply(number_1, number_2)))
-
-            elif choice == '4':
-                try: # if user attempts to divide by 0, return error message
-                    x = divide(number_1, number_2)
-                except ZeroDivisionError:
-                    print("Oops! Numbers cannot be divided by 0")
-                else:
-                    print(number_1, "/", number_2, "=", divide(number_1, number_2))
-                    exit_flow(str(number_1) + "/" + str(number_2) + "=" + str(divide(number_1, number_2)))
-
-            elif choice == '5':
-                print(number_1, "to the power of", number_2, "=", exponent(number_1, number_2))
-                exit_flow(str(number_1) + "to the power of" + str(number_2) + "=" + str(exponent(number_1, number_2)))
-            elif choice == '6':
-                try: # if user attempts to divide by 0, return error message
-                    x = modulo(number_1, number_2)
-                except ZeroDivisionError:
-                    print("Oops! Numbers cannot be divided by 0")
-                else:
-                    print("The remainder/modulo of", number_1, "and", number_2, "is", modulo(number_1, number_2))
-                    exit_flow("The remainder/modulo of" + str(number_1) + "and" + str(number_2) + "is" + str(modulo(number_1, number_2)))
-
+        elif choice == '15':
+            read_file()        
+        
         else: #  if operation choice is not within the range of 1-14, return error message to user and prompt them again
             print("Invalid operation selected, please try again")
             time.sleep(2)
@@ -238,18 +242,19 @@ def exit_flow(printed_message: str):
         exit_flow("x")
 
 def write_file(what_to_write: str):
-    # todo: implement ability for user to select file name
+    file_name = str(input("Desired file name: ") + ".txt")
     try: # try to create file, if file already exists (IOError), go into append mode, and if no error, also go into append mode
-        save_file = open('calculations.txt', 'x')
+        save_file = open(file_name, 'x')
     except IOError:
-        with open('calculations.txt', mode='a') as file_object:
+        with open(file_name, mode='a') as file_object:
             print(what_to_write, file=file_object)
     else:
-        with open('calculations.txt', mode='a') as file_object:
+        with open(file_name, mode='a') as file_object:
             print(what_to_write, file=file_object)
 
 def read_file():
-    with open('calculations.txt', mode='r') as file_object:
+    file_name = str(input("Which storage file would you like to read? ") + ".txt")
+    with open(file_name, mode='r') as file_object:
         # todo: implement ability for user to pick how many previous calculations to print, error handling for if user picks more lines than the file contains
         for line in file_object:
             print(line, end = '')

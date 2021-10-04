@@ -1,5 +1,5 @@
 dist/
 build/
 __pycache__/
-calculations.txt
+*.txt
 
