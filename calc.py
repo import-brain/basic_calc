@@ -103,7 +103,7 @@ def calculator():
     # Making the calculator work
 
     while True:
-
+        # todo: fix spacing issues in output to file
         # For every choice, execute operations based on user input
 
         choice = input("Enter choice(1/2/3/4/5/6/7/8/9/10/11/12/13/14): ")
@@ -237,6 +237,7 @@ def exit_flow(printed_message: str):
         exit_flow()
 
 def write_file(what_to_write: str):
+    # todo: implement ability for user to select file name
     try: # try to create file, if file already exists (IOError), go into append mode, and if no error, also go into append mode
         save_file = open('calculations.txt', 'x')
     except IOError:
