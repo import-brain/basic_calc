@@ -212,7 +212,8 @@ def calculator():
             exit_flow(str(measure) + " radians converted to degrees is " + str(deg(measure / 3.14 * math.pi)) + " degrees ")
 
         elif choice == '15':
-            read_file()        
+            read_file()
+            exit_flow("15")        
         
         else: #  if operation choice is not within the range of 1-14, return error message to user and prompt them again
             print("Invalid operation selected, please try again")
@@ -221,14 +222,16 @@ def calculator():
 
 
 def exit_flow(printed_message: str):
-    save_choice = input("Do you wish to save your calculation to local storage? (Y for yes, N for no) ")
+    
+    if printed_message != "15":
+        save_choice = input("Do you wish to save your calculation to local storage? (Y for yes, N for no) ")
 
-    if save_choice in ('y', 'Y', 'yes', 'Yes'):
-        write_file(printed_message)
-        print("Calculation saved to calculations.txt")
-        time.sleep(1)
-    elif save_choice in ('n', 'N', 'no', 'No'):
-        pass
+        if save_choice in ('y', 'Y', 'yes', 'Yes'):
+            write_file(printed_message)
+            print("Calculation saved to calculations.txt")
+            time.sleep(1)
+        elif save_choice in ('n', 'N', 'no', 'No'):
+            pass
     
     exit_choice = input("Exit? Or perform another calculation? (Y for another calculation, N for exit) ")
 
