@@ -234,7 +234,7 @@ def exit_flow(printed_message: str):
     else:
         print("Invalid answer, please try again")
         time.sleep(2)
-        exit_flow()
+        exit_flow("x")
 
 def write_file(what_to_write: str):
     # todo: implement ability for user to select file name
