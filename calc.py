@@ -83,6 +83,7 @@ def calculator():
     pi = 3.14
 
     # User prompt to select operation
+    # todo: add user prompt to read calculation storage file in select operation list
 
     print("Select operation")
     print("1. add")
