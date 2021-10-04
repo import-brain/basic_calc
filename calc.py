@@ -257,10 +257,15 @@ def write_file(what_to_write: str):
 
 def read_file():
     file_name = str(input("Which storage file would you like to read? ") + ".txt")
-    with open(file_name, mode='r') as file_object:
-        # todo: implement ability for user to pick how many previous calculations to print, error handling for if user picks more lines than the file contains
-        for line in file_object:
-            print(line, end = '')
+    try:
+        with open(file_name, mode='r') as file_object:
+            # todo: implement ability for user to pick how many previous calculations to print, error handling for if user picks more lines than the file contains
+            for line in file_object:
+                print(line, end = '')
+    except FileNotFoundError:
+        print("File not found, please try again")
+        time.sleep(1)
+        read_file()
 
     
 
