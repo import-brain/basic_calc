@@ -215,7 +215,7 @@ def calculator():
             read_file()
             exit_flow("15")        
         
-        else: #  if operation choice is not within the range of 1-14, return error message to user and prompt them again
+        else: #  if operation choice is not within the range of 1-15, return error message to user and prompt them again
             print("Invalid operation selected, please try again")
             time.sleep(2)
             calculator()
