@@ -228,7 +228,6 @@ def exit_flow(printed_message: str):
 
         if save_choice in ('y', 'Y', 'yes', 'Yes'):
             write_file(printed_message)
-            print("Calculation saved to calculations.txt")
             time.sleep(1)
         elif save_choice in ('n', 'N', 'no', 'No'):
             pass
@@ -245,15 +244,16 @@ def exit_flow(printed_message: str):
         exit_flow("x")
 
 def write_file(what_to_write: str):
-    file_name = str(input("Desired file name: ") + ".txt")
-    try: # try to create file, if file already exists (IOError), go into append mode, and if no error, also go into append mode
-        save_file = open(file_name, 'x')
-    except IOError:
-        with open(file_name, mode='a') as file_object:
-            print(what_to_write, file=file_object)
-    else:
-        with open(file_name, mode='a') as file_object:
-            print(what_to_write, file=file_object)
+        file_name = str(input("Desired file name: ") + ".txt")
+        try: # try to create file, if file already exists (IOError), go into append mode, and if no error, also go into append mode
+            save_file = open(file_name, 'x')
+        except IOError:
+            with open(file_name, mode='a') as file_object:
+                print(what_to_write, file=file_object)
+        else:
+            with open(file_name, mode='a') as file_object:
+                print(what_to_write, file=file_object)
+        print("Calculation saved to ", file_name)
 
 def read_file():
     file_name = str(input("Which storage file would you like to read? ") + ".txt")
