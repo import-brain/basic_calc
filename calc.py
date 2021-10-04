@@ -223,7 +223,7 @@ def calculator():
 
 def exit_flow(printed_message: str):
     
-    if printed_message != "15":
+    if printed_message != "15": # if user chooses to read calculations from storage, don't prompt user to save calculation
         save_choice = input("Do you wish to save your calculation to local storage? (Y for yes, N for no) ")
 
         if save_choice in ('y', 'Y', 'yes', 'Yes'):
@@ -262,6 +262,7 @@ def read_file():
             # todo: implement ability for user to pick how many previous calculations to print, error handling for if user picks more lines than the file contains
             for line in file_object:
                 print(line, end = '')
+    # if file not found, return error
     except FileNotFoundError:
         print("File not found, please try again")
         time.sleep(1)
