@@ -20,4 +20,5 @@ Please follow the established naming conventions present in the code, it makes i
 - [X] Create new release (use PyInstaller --onefile argument to create less messy rar files)
 - [X] Make linux binaries/executables with next release
 - [X] Add ability for program to save all calculations done to a file (python read/write)
+- [ ] Refactor if-else-elif statements to use new "match" statement introduced in Python 3.10
 - [ ] Possibly in the future: Rebuild app using TKinter
