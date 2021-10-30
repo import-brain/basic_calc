@@ -6,6 +6,8 @@ BasicCalc is a small, command-line calculator that performs the standard four ma
 
 ## Installation
 
+REQUIRES PYTHON VERSION 3.10 OR LATER
+
 Download the latest release on the right of the main repo page, extract it using an unzipper (WinRar, 7Zip, unzip command for Linux aficionados, etc.), and scroll down until you find a file named something similar to "calc.exe" for your operating system. This file is the calculator. Enjoy! :)
 
 ## CONTRIBUTORS/CONTRIBUTING
@@ -20,5 +22,5 @@ Please follow the established naming conventions present in the code, it makes i
 - [X] Create new release (use PyInstaller --onefile argument to create less messy rar files)
 - [X] Make linux binaries/executables with next release
 - [X] Add ability for program to save all calculations done to a file (python read/write)
-- [ ] Refactor if-else-elif statements to use new "match" statement introduced in Python 3.10
+- [X] Refactor if-else-elif statements to use new "match" statement introduced in Python 3.10
 - [ ] Possibly in the future: Rebuild app using TKinter
