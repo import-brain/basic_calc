@@ -2,20 +2,17 @@ import math
 import sys
 import time
 
-UsablePythonVersion = [(3,10)]
-
-class NotSupportedVersionException:
-    EMessage = None
+class NotSupportedVersionException(BaseException):
     def __init__(self):
-        global EMessage
-
+        pass
 #all helper functions
 def versionCheck():
-    CurrentVersion=sys.version_info;
-    if CurrentVersion in UsablePythonVersion :
+    MiniumPythonVersion=(3, 10)    
+    CurrentVersion=(sys.version_info.major, sys.version_info.minor)
+    if CurrentVersion >= MiniumPythonVersion :
         pass
     else :
-        print("Due to code used in this program, any version below 3.10 is not able to run this program, goto https://docs.python.org/3/whatsnew/3.10.html for more information.")
+        print("Due to code used in this program, any version below 3.10 is not able to run this program, goto https://docs.python.org/3/whatsnew/3.10.html for more information.\n current version: "+sys.version)
         raise NotSupportedVersionException
 
 def safeConvert(value : str, defaultValue : str, function):
@@ -292,6 +289,7 @@ def calculator():
                 case _: #  if operation choice is not within the range of 1-15, return error message to user and prompt them again
                     print("Invalid operation selected, please try again")
                     time.sleep(2)
-                
+         
+versionCheck()       
 calculator()
 # :)
