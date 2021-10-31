@@ -2,7 +2,22 @@ import math
 import sys
 import time
 
+UsablePythonVersion = [(3,10)]
+
+class NotSupportedVersionException:
+    EMessage = None
+    def __init__(self):
+        global EMessage
+
 #all helper functions
+def versionCheck():
+    CurrentVersion=sys.version_info;
+    if CurrentVersion in UsablePythonVersion :
+        pass
+    else :
+        print("Due to code used in this program, any version below 3.10 is not able to run this program, goto https://docs.python.org/3/whatsnew/3.10.html for more information.")
+        raise NotSupportedVersionException
+
 def safeConvert(value : str, defaultValue : str, function):
     try:
         return function(value)
