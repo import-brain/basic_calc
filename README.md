@@ -17,10 +17,11 @@ Please fork the project, create a new branch in the fork, and PR request changes
 Please follow the established naming conventions present in the code, it makes it easier for all of us to maintain this project.
 
 ## TODO
-- [X] Add conversion to and from radians/degrees
-- [X] Add trigonometric functions (sin, cos, tan, etc.)
-- [X] Create new release (use PyInstaller --onefile argument to create less messy rar files)
-- [X] Make linux binaries/executables with next release
-- [X] Add ability for program to save all calculations done to a file (python read/write)
-- [X] Refactor if-else-elif statements to use new "match" statement introduced in Python 3.10
+
+- [x] Add conversion to and from radians/degrees
+- [x] Add trigonometric functions (sin, cos, tan, etc.)
+- [x] Create new release (use PyInstaller --onefile argument to create less messy rar files)
+- [x] Make linux binaries/executables with next release
+- [x] Add ability for program to save all calculations done to a file (python read/write)
+- [x] Refactor if-else-elif statements to use new "match" statement introduced in Python 3.10
 - [ ] Possibly in the future: Rebuild app using TKinter
