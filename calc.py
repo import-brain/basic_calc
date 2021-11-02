@@ -7,9 +7,9 @@ class NotSupportedVersionException(BaseException):
         pass
 #all helper functions
 def versionCheck():
-    MiniumPythonVersion=(3, 10)    
+    MinimumPythonVersion=(3, 10)    
     CurrentVersion=(sys.version_info.major, sys.version_info.minor)
-    if CurrentVersion >= MiniumPythonVersion :
+    if CurrentVersion >= MinimumPythonVersion :
         pass
     else :
         print("Due to code used in this program, any version below 3.10 is not able to run this program, goto https://docs.python.org/3/whatsnew/3.10.html for more information.\n current version: "+sys.version)
