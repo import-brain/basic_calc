@@ -1,0 +1,3 @@
+*.py @import-brain
+*.md @import-brain @HenrySoftwareStudio
+*.txt @import-brain @HenrySoftwareStudio
