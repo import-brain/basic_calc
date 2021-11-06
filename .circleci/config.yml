@@ -34,7 +34,7 @@ jobs:
       - checkout
       - run:
           name: "Lint using pylint"
-          command: "pylint calc.py --variable-naming-style=snake_case --function-naming-style=snake_case"
+          command: "python -m pylint calc.py --variable-naming-style=snake_case --function-naming-style=snake_case"
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
