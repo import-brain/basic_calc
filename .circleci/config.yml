@@ -43,9 +43,9 @@ workflows:
     jobs:
       - build
       - install-pylint:
-        - requires:
+         requires:
           - build
       - run-pylint:
-        - requires:
+         requires:
           - install-pylint
           - build
