@@ -24,7 +24,7 @@ jobs:
       - checkout
       - run:
           name: "Install pylint"
-          command: "pip install pylint --upgrade"
+          command: "python -m pip install pylint --upgrade"
   run-pylint:
     docker:
       - image: cimg/python:3.10.0
@@ -34,7 +34,7 @@ jobs:
       - checkout
       - run:
           name: "Lint using pylint"
-          command: "pylint calc.py --variable-naming-style=snake_case --function-naming-style=snake_case"
+          command: "python -m pylint calc.py --variable-naming-style=snake_case --function-naming-style=snake_case"
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
