@@ -68,7 +68,6 @@ def read_file():
     
     pass
 
-
 def calculator():
     def safeInputSingleValue(PromptMessage : str) -> float:
         Value = None
