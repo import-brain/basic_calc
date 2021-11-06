@@ -23,6 +23,16 @@ jobs:
       - run:
           name: "Lint using pylint"
           command: "pip install pylint && python -m pylint calc.py --variable-naming-style=snake_case --function-naming-style=snake_case"
+  lint-commit-messages:
+    docker:
+      - image: cimg/python:3.10.0
+    # Add steps to the job
+    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
+    steps:
+      - checkout
+      - run:
+          name: "Lint commit messages using commitlint"
+          command: "npx commitlint --from ${{ github.event.pull_request.base.sha }} --to ${{ github.event.pull_request.head.sha }} --verbose"
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
@@ -33,3 +43,6 @@ workflows:
       - run-pylint:
          requires:
           - build
+  lint-commit-messages:
+    jobs:
+      - lint-commit-messages
