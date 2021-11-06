@@ -13,18 +13,6 @@ jobs:
     steps:
       - checkout
       - run: python --version
-  install-pylint:
-    # Specify the execution environment. You can specify an image from Dockerhub or use one of our Convenience Images from CircleCI's Developer Hub.
-    # See: https://circleci.com/docs/2.0/configuration-reference/#docker-machine-macos-windows-executor
-    docker:
-      - image: cimg/python:3.10.0
-    # Add steps to the job
-    # See: https://circleci.com/docs/2.0/configuration-reference/#steps
-    steps:
-      - checkout
-      - run:
-          name: "Install pylint"
-          command: "python -m pip install pylint --upgrade"
   run-pylint:
     docker:
       - image: cimg/python:3.10.0
@@ -34,7 +22,7 @@ jobs:
       - checkout
       - run:
           name: "Lint using pylint"
-          command: "python -m pylint calc.py --variable-naming-style=snake_case --function-naming-style=snake_case"
+          command: "pip install pylint && python -m pylint calc.py --variable-naming-style=snake_case --function-naming-style=snake_case"
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
@@ -42,10 +30,6 @@ workflows:
   lint-py:
     jobs:
       - build
-      - install-pylint:
-         requires:
-          - build
       - run-pylint:
          requires:
-          - install-pylint
           - build
