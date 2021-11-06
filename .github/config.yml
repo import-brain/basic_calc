@@ -1,0 +1,2 @@
+PR_TITLE_REGEX: /^(revert: )?(feat|fix|docs|style|refactor|perf|test|chore)(\(.+\))?: .{1,50}/
+COMMIT_MESSAGE_REGEX: /^(revert: )?(feat|fix|docs|style|refactor|perf|test|chore)(\(.+\))?: .{1,50}/
