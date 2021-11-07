@@ -21,8 +21,11 @@ jobs:
     steps:
       - checkout
       - run:
+          name: "Install pylint"
+          command: "pip install pylint"
+      - run:
           name: "Lint using pylint"
-          command: "pip install pylint && python -m pylint calc.py --variable-naming-style=snake_case --function-naming-style=snake_case"
+          command: "python -m pylint calc.py --variable-naming-style=snake_case --function-naming-style=snake_case"
   lint-commit-messages:
     docker:
       - image: cimg/node:17.0.1
@@ -31,8 +34,11 @@ jobs:
     steps:
       - checkout
       - run:
-          name: "Lint commit messages using commitlint"
-          command: "npx commitlint --from HEAD~${{ github.event.pull_request.commits }} --to HEAD --verbose"
+          name: "Install dependencies"
+          command: "yarn add @s-libs/ng-core @s-libs/rxjs-core @s-libs/js-core @s-libs/micro-dash @angular/cdk && yarn add -D @s-libs/ng-dev"
+      - run:
+          name: "Lint commit messages using ng-dev"
+          command: "yarn -s ng-dev commit-message validate-range $CI_GIT_BASE_REVISION $CI_GIT_REVISION"
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
