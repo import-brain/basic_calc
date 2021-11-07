@@ -38,10 +38,7 @@ jobs:
           command: "node -v && npm -v"
       - run:
           name: "Install dependencies"
-          command: "yarn add @s-libs/ng-core @s-libs/rxjs-core @s-libs/js-core @s-libs/micro-dash @angular/cdk @angular/cli @angular/core && yarn add -D @s-libs/ng-dev"
-      - run:
-          name: "Link dependencies"
-          command: "yarn link @angular/cli"
+          command: "yarn global add @s-libs/ng-core @s-libs/rxjs-core @s-libs/js-core @s-libs/micro-dash @angular/cdk @angular/cli @angular/core@12.0.0 @angular/common@13.0.0 jasmine-core@3.6.0 rxjs@6.5.3 zone.js@0.11.4 && yarn add -D @s-libs/ng-dev"
       - run:
           name: "Lint commit messages using ng-dev"
           command: "yarn -s ng-dev commit-message validate-range $CI_GIT_BASE_REVISION $CI_GIT_REVISION"
