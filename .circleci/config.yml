@@ -34,8 +34,14 @@ jobs:
     steps:
       - checkout
       - run:
+          name: "Verify node/npm version"
+          command: "node -v && npm -v"
+      - run:
           name: "Install dependencies"
-          command: "yarn add @s-libs/ng-core @s-libs/rxjs-core @s-libs/js-core @s-libs/micro-dash @angular/cdk && yarn add -D @s-libs/ng-dev"
+          command: "yarn add @s-libs/ng-core @s-libs/rxjs-core @s-libs/js-core @s-libs/micro-dash @angular/cdk @angular/cli @angular/core && yarn add -D @s-libs/ng-dev"
+      - run:
+          name: "Link dependencies"
+          command: "yarn link @angular/cli"
       - run:
           name: "Lint commit messages using ng-dev"
           command: "yarn -s ng-dev commit-message validate-range $CI_GIT_BASE_REVISION $CI_GIT_REVISION"
