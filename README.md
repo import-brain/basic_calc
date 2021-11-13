@@ -25,4 +25,6 @@ Please follow the established naming conventions present in the code, it makes i
 - [x] Add ability for program to save all calculations done to a file (python read/write)
 - [x] Refactor if-else-elif statements to use new "match" statement introduced in Python 3.10
 - [x] Add a safety feature (not just intentionally crashing users) for "match" statements when user is not using Python 3.10 or above (add a legacy component that still        uses if-else-elif statements could be a good route)
+- [ ] Remove redundant code
+- [ ] Reconstruct program structure to support switch arguments based function as a precursor to using TKinter
 - [ ] Possibly in the future: Rebuild app using TKinter
