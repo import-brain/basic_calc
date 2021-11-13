@@ -276,123 +276,7 @@ def calculator():
     DOUBLEINPUTSDIC={'1':addFunction, '2':subtFunction, '3':multFunction, '4':divFunction, '5':sqrFuction, '6':modFunction}
     SINGLEINPUTSDIC={'7':sqrtFunction, '8':circFunction, '9':ciraFunction, '10':sinFunction, '11':cosFunction, '12':tanFunction, '13':toradFunction, '14':todegFunction}
     NOINPUTSDIC={'15':readFileFunction}
-    
-    def decide(choice : str):
-        if choice in ('1', '2', '3', '4', '5', '6'):
-                numbers = safeInputDoubleValue("Value for the first number", "Value for the second number")
-                match choice:
-                    case '1':
-                        addFunction(numbers)
-                    
-                    case '2':
-                        subtFunction(numbers)
-    
-                    case '3':
-                        multFunction(numbers)
-    
-                    case '4':
-                        divFunction(numbers)
-        
-                    case '5':
-                        sqrFuction(numbers)
-                        
-                    case '6':
-                        modFunction(numbers)
-                            
-        else: 
-            number = safeInputSingleValue("Enter Number")
-            match choice:
-                case '7':
-                    sqrFuction(number)
-            
-                case '8':
-                    circFunction(number)
-            
-                case '9':
-                    ciraFunction(number)
-            
-                case '10':
-                    sinFunction(number)
-          
-                case '11':
-                    cosFunction(number)
-            
-                case '12':
-                    tanFunction(number)
-          
-                case '13':
-                    toradFunction(number)
-         
-                case '14':
-                    todegFunction(number)
-                
-                case '15':
-                    read_file()
-                    exit_flow("15")        
-                    
-                case _: #  if operation choice is not within the range of 1-15, return error message to user and prompt them again
-                    print("Invalid operation selected, please try again")
-                    time.sleep(2)
-    
-    def legDecide(choice : str):
-        if choice.__eq__("-E"):
-            sys.exit(0)
-            
-        if choice in ('1', '2', '3', '4', '5', '6'):
-            numbers = safeInputDoubleValue("Value for the first number", "Value for the second number")            
-            if choice=='1':
-                addFunction(numbers)
-                    
-            elif choice=='2':
-                subtFunction(numbers)
-    
-            elif choice=='3':
-                multFunction(numbers)
-    
-            elif choice=='4':
-                divFunction(numbers)
-        
-            elif choice=='5':
-                sqrFuction(numbers)
-                        
-            elif choice=='6':
-                modFunction(numbers)
-                            
-        else: 
-            number = safeInputSingleValue("Enter Number")
-            if choice=='7':
-                sqrtFunction(number)
-            
-            elif choice=='8':
-                circFunction(number)
-        
-            elif choice=='9':
-                ciraFunction(number)
-        
-            elif choice=='10':
-                sinFunction(number)
-            
-            elif choice=='11':
-                cosFunction(number)
-        
-            elif choice=='12':
-                tanFunction(number)
-            
-            elif choice=='13':
-                toradFunction(number)
-            
-            elif choice=='14':
-                todegFunction(number)
-                    
-            elif choice=='15':
-                read_file()
-                exit_flow("15")        
-                    
-            else: #  if operation choice is not within the range of 1-15, return error message to user and prompt them again
-                print("Invalid operation selected, please try again")
-                time.sleep(2)
-    
-    
+
     def dicFunctionRunnerWith0Input(func):
         func()
     
@@ -401,19 +285,6 @@ def calculator():
     
     def dicFunctionRunnerWith1Input(arge : float, func):
         func(arge)
-    
-    def interact():
-        #promt options
-        promt()
-        # Making the calculator work
-        while True:
-            # todo: fix spacing issues in output to file
-            # For every choice, execute operations based on user input
-            choice = input("Enter choice(1/2/3/4/5/6/7/8/9/10/11/12/13/14/15): ")
-            if versionCheck():
-                decide(choice)
-            else:
-                legDecide(choice)
     
     def newInteract():
         while True:
