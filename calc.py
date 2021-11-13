@@ -415,28 +415,30 @@ def calculator():
             else:
                 legDecide(choice)
     
-    #functionality of calculator starts here
-    #interact()
-    while True:
-        promt()
-        choice = input("Enter choice(1/2/3/4/5/6/7/8/9/10/11/12/13/14/15):")
-        if choice.__eq__("-E"):
-            sys.exit(0)
+    def newInteract():
+        while True:
+            promt()
+            choice = input("Enter choice(1/2/3/4/5/6/7/8/9/10/11/12/13/14/15):")
+            if choice.__eq__("-E"):
+                sys.exit(0)
+                
+            if choice in ('1', '2', '3', '4', '5', '6'):
+                numbers = safeInputDoubleValue("Value for the first number: ", "Value for the second number: ")
+                dicFunctionRunnerWith1Input(numbers, DOUBLEINPUTSDIC[choice])
+            elif choice in ('7','8','9','10','11','12','13','14'):
+                number = safeInputSingleValue("Enter Number: ")
+                dicFunctionRunnerWith1Input(number, SINGLEINPUTSDIC[choice])
             
-        if choice in ('1', '2', '3', '4', '5', '6'):
-            numbers = safeInputDoubleValue("Value for the first number: ", "Value for the second number: ")
-            dicFunctionRunnerWith1Input(numbers, DOUBLEINPUTSDIC[choice])
-        elif choice in ('7','8','9','10','11','12','13','14'):
-            number = safeInputSingleValue("Enter Number: ")
-            dicFunctionRunnerWith1Input(number, SINGLEINPUTSDIC[choice])
-        
-        elif choice in ('15'):
-            dicFunctionRunnerWith0Input(NOINPUTSDIC[choice])
-        
-        else:
-            print("Invalid operation selected, please try again")
-            time.sleep(2)
+            elif choice in ('15'):
+                dicFunctionRunnerWith0Input(NOINPUTSDIC[choice])
+            
+            else:
+                print("Invalid operation selected, please try again")
+                time.sleep(2)
                     
+        
+    #functionality of calculator starts here
+    newInteract()
     
 #extra fail save
 try:
