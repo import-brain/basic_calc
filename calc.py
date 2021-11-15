@@ -253,7 +253,7 @@ def calculator():
         read_file()
         exit_flow("15") 
         
-    def promt():
+    def prompt():
         # User prompt to select operation
         print("Select an operation")
         print("1. add")
@@ -288,7 +288,7 @@ def calculator():
     
     def newInteract():
         while True:
-            promt()
+            prompt()
             choice = input("Enter choice(1/2/3/4/5/6/7/8/9/10/11/12/13/14/15):")
             if choice.__eq__("-E"):
                 sys.exit(0)
