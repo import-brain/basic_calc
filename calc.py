@@ -450,6 +450,7 @@ def calculator():
 
     def read_file_function():
         read_file()
+        exit_flow("15")
     def prompt():
         # User prompt to select operation
         print("Select an operation")
