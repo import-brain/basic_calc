@@ -28,5 +28,5 @@ Please follow the established naming conventions present in the code, it makes i
 - [x] Remove redundant code
 - [ ] Add comments in calc.py to elaborate on usage of dictionary for functions
 - [ ] Add ability for program to read from config file for options (e.g. rounding place, save to file, etc.)
-- [ ] Reconstruct program structure to support switch arguments based function as a precursor to using TKinter
+- [x] Reconstruct program structure to support switch arguments based function as a precursor to using TKinter
 - [ ] Possibly in the future: Rebuild app using TKinter
