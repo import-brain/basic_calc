@@ -1,4 +1,5 @@
 import math
+import cmath #incased needed for imaginary numbers
 import sys
 import time
 from platform import system
@@ -15,6 +16,7 @@ def version_check() -> bool:
 
 
 def safe_convert(value: str, default_value: str, function):
+    """conversion tool that can handle conversions, however, option for default valve is added incase conversion is failed"""
     try:
         return function(value)
     except ValueError:
@@ -86,124 +88,137 @@ def read_file():
 
     pass
 
+def safe_input_single_value(prompt_message: str) -> float:
+    """Input utility that gets a float value as an output, it is protected using safe_convert"""
+    value = None
+    while value == None:
+        value = safe_convert(input(prompt_message), None, float)
 
-def calculator():
-    def safe_input_single_value(prompt_message: str) -> float:
-        value = None
-        while value == None:
-            value = safe_convert(input(prompt_message), None, float)
+    return value
 
-        return value
+def safe_input_double_value(prompt_message_1: str, prompt_message_2: str) -> tuple:
+    """Input utility that gets 2 float values and return them as a tuple, it is protected by safe_convert"""
+    number_1 = None
+    number_2 = None
 
-    def safeInputDoubleValue(PromptMessage1: str, PromptMessage2: str) -> tuple:
-        number_1 = None
-        number_2 = None
-
-        while number_1 is None or number_2 is None:
-            print(
-                "repeat if bad value is entered (bad values are anything that is not a number)"
-            )
-            number_1 = safe_convert(input(PromptMessage1), None, float)
-            number_2 = safe_convert(input(PromptMessage2), None, float)
-
-        return (number_1, number_2)
-
-    def run_and_round2_value(number_1: float, number_2: float, func) -> float:
-        return round(func(number_1, number_2), int(input("Rounding place: ")))
-
-    def run_and_round1_value(number_1: float, func) -> float:
-        return round(func(number_1), int(input("Rounding place: ")))
-
-    def add(number_1: float, number_2: float) -> float:
-        return number_1 + number_2
-
-    # subtracting
-
-    def subtract(number_1: float, number_2: float) -> float:
-        return number_1 - number_2
-
-    # multiplying
-
-    def multiply(number_1: float, number_2: float) -> float:
-        return number_1 * number_2
-
-    # dividing
-
-    def divide(number_1: float, number_2: float) -> float:
-        return number_1 / number_2
-
-    # exponentiation
-
-    def exponent(number_1: float, number_2: float) -> float:
-        return number_1 ** number_2
-
-    # modulo/remainder/whatever you want to call it
-
-    def modulo(number_1: float, number_2: float) -> float:
-        return number_1 % number_2
-
-    # square root
-
-    def sqrroot(number_1: float) -> float:
-        return exponent(number_1, 0.5)
-
-    # circumference
-
-    def circumference(number_1: float) -> float:
-        return math.pi * number_1
-
-    # area of circle
-
-    def circle_area(number_1: float) -> float:
-        return math.pi * (number_1 ** 2)
-
-    # sin, cos, tan
-
-    def sin(number_1: float) -> float:
-        return math.sin(number_1)
-
-    def cos(number_1: float) -> float:
-        return math.cos(number_1)
-
-    def tan(number_1: float) -> float:
-        return math.tan(number_1)
-
-    def rad(number_1: float) -> float:
-        return math.radians(number_1)
-
-    def deg(number_1: float) -> float:
-        return math.degrees(number_1)
-
-    def rad_or_degree() -> bool:  # rad or degree choice picker function
-        vrad_or_degree = safe_input_single_value(
-            "Degrees or radians? Enter 0 for degrees, 1 for radians: "
-        )
-        if vrad_or_degree == 1 or vrad_or_degree == 0:
-            return True if vrad_or_degree == 1 else False
-        else:
-            print("Must select 1 or 0")
-            time.sleep(2)
-
-    def add_function(inputs: tuple):
+    while number_1 is None or number_2 is None:
         print(
-            inputs[0],
-            "+",
-            inputs[1],
-            "=",
-            run_and_round2_value(inputs[0], inputs[1], add),
+            "repeat if bad value is entered (bad values are anything that is not a number)"
         )
+        number_1 = safe_convert(input(prompt_message_1), None, float)
+        number_2 = safe_convert(input(prompt_message_2), None, float)
+
+    return (number_1, number_2)
+
+def run_and_round2_value(number_1: float, number_2: float, func, suppress_rounding: bool=False) -> float:
+    """function that excecute a function and auto rounds, aquire rounding place by asking for it, this function only support functions that use 2 arguments"""
+    if suppress_rounding:
+        return func(number_1, number_2)
+    else:
+        return round(func(number_1, number_2), safe_input_single_value("Rounding Place:"))
+
+def run_and_round1_value(number_1: float, func, suppress_rounding: bool=False) -> float:
+    """function that excecute a function and auto rounds, aquire rounding place by asking for it, this function only support functions that use 1 arguments"""
+    if suppress_rounding:
+        return func(number_1)
+    else:
+        return round(func(number_1), safe_input_single_value("Rounding Place:"))
+
+def add(number_1: float, number_2: float) -> float:
+    """addition utility"""
+    return number_1 + number_2
+
+def subtract(number_1: float, number_2: float) -> float:
+    """subtraction utility"""
+    return number_1 - number_2
+
+def multiply(number_1: float, number_2: float) -> float:
+    """multiplication utility"""
+    return number_1 * number_2
+
+def divide(number_1: float, number_2: float) -> float:
+    """division utility, Caution:*no built-in safety protection,
+   please put this into consideration when using this function*"""
+    return number_1 / number_2
+
+def exponent(number_1: float, number_2: float) -> float:
+    """exponent utility"""
+    return number_1 ** number_2
+
+def modulo(number_1: float, number_2: float) -> float:
+    """modulo/remainder utility, Caution:*no built-in safety protection,
+   please put this into consideration when using this function*"""
+    return number_1 % number_2
+
+def sqrroot(number_1: float) -> float:
+    """square root utility"""
+    return exponent(number_1, 0.5)
+
+def circumference(number_1: float) -> float:
+    """circle circumference utility"""
+    return math.pi * number_1
+
+def circle_area(number_1: float) -> float:
+    """circle area utility"""
+    return math.pi * (number_1 ** 2)
+
+def sin(number_1: float) -> float:
+    """sin utility"""
+    return math.sin(number_1)
+
+def cos(number_1: float) -> float:
+    """cos utility, Caution:*no built-in safety protection,
+   please put this into consideration when using this function*"""
+    return math.cos(number_1)
+
+def tan(number_1: float) -> float:
+    """tan utility, Caution:*no built-in safety protection,
+   please put this into consideration when using this function*"""
+    return math.tan(number_1)
+
+def rad(number_1: float) -> float:
+    """to radian utility"""
+    return math.radians(number_1)
+
+def deg(number_1: float) -> float:
+    """to degree utility"""
+    return math.degrees(number_1)
+
+def rad_or_degree() -> bool:
+    """rad or degree choice picker function"""
+    vrad_or_degree = safe_input_single_value(
+        "Degrees or radians? Enter 0 for degrees, 1 for radians: "
+    )
+    if vrad_or_degree == 1 or vrad_or_degree == 0:
+        return True if vrad_or_degree == 1 else False
+    else:
+        print("Must select 1 or 0")
+        time.sleep(2)
+
+def add_function(inputs: tuple, suppress_rounding: bool=False):
+    """addition functionality wrapper, this is not a helper function"""
+    print(
+        inputs[0],
+        "+",
+        inputs[1],
+        "=",
+        run_and_round2_value(inputs[0], inputs[1], add, suppress_rounding),
+    )
+    if not suppress_rounding:
         exit_flow(
             str(inputs[0]) + "+" + str(inputs[1]) + "=" + str(add(inputs[0], inputs[1]))
         )
 
-    def subt_function(inputs: tuple):
-        print(
-            inputs[0],
-            "-",
-            inputs[1],
-            "=",
-            run_and_round2_value(inputs[0], inputs[1], subtract),
-        )
+def subt_function(inputs: tuple, suppress_rounding: bool=False):
+    """subtation functionality wrapper, this is not a helper function"""
+    print(
+        inputs[0],
+        "-",
+        inputs[1],
+        "=",
+        run_and_round2_value(inputs[0], inputs[1], subtract, suppress_rounding),
+    )
+    if not suppress_rounding:
         exit_flow(
             str(inputs[0])
             + "-"
@@ -212,14 +227,16 @@ def calculator():
             + str(subtract(inputs[0], inputs[1]))
         )
 
-    def mult_function(inputs: tuple):
-        print(
-            inputs[0],
-            "*",
-            inputs[1],
-            "=",
-            run_and_round2_value(inputs[0], inputs[1], multiply),
-        )
+def mult_function(inputs: tuple, suppress_rounding: bool=False):
+    """mutiplication functionality wrapper, this is not a helper function"""
+    print(
+        inputs[0],
+        "*",
+        inputs[1],
+        "=",
+        run_and_round2_value(inputs[0], inputs[1], multiply, suppress_rounding),
+    )
+    if not suppress_rounding:
         exit_flow(
             str(inputs[0])
             + "*"
@@ -228,17 +245,19 @@ def calculator():
             + str(multiply(inputs[0], inputs[1]))
         )
 
-    def div_function(inputs: tuple):
-        if inputs[1] == 0:  # if user attempts to input by 0, return error message
-            print("Oops! Numbers cannot be divided by 0")
-        else:
-            print(
-                inputs[0],
-                "/",
-                inputs[1],
-                "=",
-                run_and_round2_value(inputs[0], inputs[1], divide),
-            )
+def div_function(inputs: tuple, suppress_rounding: bool=False):
+    """division fuctionality wrapper, this is not a helper function, divide by 0 check is implemented"""
+    if inputs[1] == 0:  # if user attempts to input by 0, return error message
+        print("Oops! Numbers cannot be divided by 0")
+    else:
+        print(
+            inputs[0],
+            "/",
+            inputs[1],
+            "=",
+            run_and_round2_value(inputs[0], inputs[1], divide, suppress_rounding),
+        )
+        if not suppress_rounding:
             exit_flow(
                 str(inputs[0])
                 + "/"
@@ -247,14 +266,16 @@ def calculator():
                 + str(divide(inputs[0], inputs[1]))
             )
 
-    def sqr_function(inputs: tuple):
-        print(
-            inputs[0],
-            "to the power of",
-            inputs[1],
-            "=",
-            run_and_round2_value(inputs[0], inputs[1], exponent),
-        )
+def sqr_function(inputs: tuple, suppress_rounding: bool=False):
+    """square functionality wrapper, this is not a helper function"""
+    print(
+        inputs[0],
+        "to the power of",
+        inputs[1],
+        "=",
+        run_and_round2_value(inputs[0], inputs[1], exponent, suppress_rounding),
+    )
+    if not suppress_rounding:
         exit_flow(
             str(inputs[0])
             + "to the power of"
@@ -263,17 +284,19 @@ def calculator():
             + str(exponent(inputs[0], inputs[1]))
         )
 
-    def mod_function(inputs: tuple):
-        if inputs[1] == 0:  # if user attempts to input by 0, return error message
-            print("Oops! Numbers cannot be divided by 0")
-        else:
-            print(
-                inputs[0],
-                "/",
-                inputs[1],
-                "=",
-                run_and_round2_value(inputs[0], inputs[1], modulo),
-            )
+def mod_function(inputs: tuple, suppress_rounding: bool=False):
+    """modulo functionality wrapper, this is not a helper function, divide by 0 check is implemented"""
+    if inputs[1] == 0:  # if user attempts to input by 0, return error message
+        print("Oops! Numbers cannot be divided by 0")
+    else:
+        print(
+            inputs[0],
+            "/",
+            inputs[1],
+            "=",
+            run_and_round2_value(inputs[0], inputs[1], modulo, suppress_rounding)
+        )
+        if not suppress_rounding:
             exit_flow(
                 str(inputs[0])
                 + "/"
@@ -282,24 +305,28 @@ def calculator():
                 + str(modulo(inputs[0], inputs[1]))
             )
 
-    def sqrt_function(input_value: float):
-        print(
-            "The square root of",
-            input_value,
-            "is",
-            run_and_round1_value(input_value, sqrroot),
-        )
+def sqrt_function(input_value: float, suppress_rounding: bool=False):
+    """square root functionality wrapper, this is not a helper function, imaginary number handling is not yet implemented"""
+    print(
+        "The square root of",
+        input_value,
+        "is",
+        run_and_round1_value(input_value, sqrroot, suppress_rounding),
+    )
+    if not suppress_rounding:
         exit_flow(
             "The square root of" + str(input_value) + "is" + str(sqrroot(input_value))
         )
 
-    def circumference_function(input_value: float):
-        print(
-            "A circle with diameter",
-            input_value,
-            "has a circumference of",
-            run_and_round1_value(input_value, circumference),
-        )
+def circumference_function(input_value: float, suppress_rounding: bool=False):
+    """circle circumference functionality wrapper, this is not a helper function"""
+    print(
+        "A circle with diameter",
+        input_value,
+        "has a circumference of",
+        run_and_round1_value(input_value, circumference, suppress_rounding),
+    )
+    if not suppress_rounding:
         exit_flow(
             "A circle with diameter"
             + str(input_value)
@@ -307,13 +334,14 @@ def calculator():
             + str(circumference(input_value))
         )
 
-    def area_function(input_value: float):
-        print(
-            "A circle with radius",
-            input_value,
-            "has an area of",
-            run_and_round1_value(input_value, circle_area),
-        )
+def area_function(input_value: float, suppress_rounding: bool=False):
+    print(
+        "A circle with radius",
+        input_value,
+        "has an area of",
+        run_and_round1_value(input_value, circle_area, suppress_rounding),
+    )
+    if not suppress_rounding:
         exit_flow(
             "A circle with radius"
             + str(input_value)
@@ -321,136 +349,139 @@ def calculator():
             + str(circle_area(input_value))
         )
 
-    def sin_function(input_value: float):
-        if rad_or_degree():
-            print(
-                "The sine of ",
-                input_value,
-                " degrees is ",
-                run_and_round1_value(math.radians(input_value), sin),
-            )
-            exit_flow(
-                "The sine of "
-                + str(input_value)
-                + " degrees is "
-                + str(round(sin(math.radians(input_value)), 3))
-            )
-        else:
-            print(
-                "The sine of ",
-                input_value,
-                " radians is ",
-                run_and_round1_value(input_value, sin),
-            )
-            exit_flow(
-                "The sine of "
-                + str(input_value)
-                + " radians is "
-                + str(round(sin(input_value), 3))
-            )
-
-    def cos_function(input_value: float):
-        if rad_or_degree():
-            print(
-                "The cosine of ",
-                input_value,
-                " degrees is ",
-                round(cos(math.radians(input_value)), 3),
-            )
-            exit_flow(
-                "The cosine of "
-                + str(input_value)
-                + " degrees is "
-                + str(round(cos(math.radians(input_value)), 3))
-            )
-        else:
-            print(
-                "The cosine of ",
-                input_value,
-                " radians is ",
-                round(cos(input_value), 3),
-            )
-            exit_flow(
-                "The cosine of "
-                + str(input_value)
-                + " radians is "
-                + str(round(cos(input_value), 3))
-            )
-
-    def tan_function(input_value: float):
-        type_choice = rad_or_degree()
-        if cos(math.radians(input_value) if not (type_choice) else input_value) == 0:
-            print(
-                "Tangent of ",
-                input_value,
-                "degrees" if type_choice == 0 else "radians",
-                "is undefined",
-            )
-            exit_flow(
-                "Tangent of "
-                + str(input_value)
-                + ("degrees" if type_choice == 0 else "radians")
-                + " is undefined"
-            )
-
-        if type_choice:
-            print(
-                "The tangent of ",
-                input_value,
-                " degrees is ",
-                round(tan(math.radians(input_value)), 3),
-            )
-            exit_flow(
-                "The tangent of "
-                + str(input_value)
-                + " degrees is "
-                + str(round(tan(math.radians(input_value)), 3))
-            )
-        else:
-            print(
-                "The tangent of ",
-                input_value,
-                " radians is ",
-                round(tan(input_value), 3),
-            )
-            exit_flow(
-                "The tangent of "
-                + str(input_value)
-                + " radians is "
-                + str(round(tan(input_value), 3))
-            )
-
-    def to_rad_function(input_value: float):
+def sin_function(input_value: float, suppress_rounding: bool=False):
+    if rad_or_degree():
         print(
+            "The sine of ",
             input_value,
-            " degrees converted to radians is",
-            rad((input_value)),
-            " radians ",
+            " degrees is ",
+            run_and_round1_value(math.radians(input_value), sin),
         )
         exit_flow(
-            str(input_value)
-            + " degrees converted to radians is "
-            + str(rad((input_value)))
-            + " radians "
+            "The sine of "
+            + str(input_value)
+            + " degrees is "
+            + str(round(sin(math.radians(input_value)), 3))
         )
-
-    def to_deg_function(input_value: float):
+    else:
         print(
+            "The sine of ",
             input_value,
-            " radians converted to degrees is",
-            deg(input_value / 3.14 * math.pi),
-            " degrees ",
+            " radians is ",
+            run_and_round1_value(input_value, sin),
         )
         exit_flow(
-            str(input_value)
-            + " radians converted to degrees is "
-            + str(deg(input_value / 3.14 * math.pi))
-            + " degrees "
+            "The sine of "
+            + str(input_value)
+            + " radians is "
+            + str(round(sin(input_value), 3))
         )
 
-    def read_file_function():
-        read_file()
-        exit_flow("15")
+def cos_function(input_value: float, suppress_rounding: bool=False):
+    if rad_or_degree():
+        print(
+            "The cosine of ",
+            input_value,
+            " degrees is ",
+            round(cos(math.radians(input_value)), 3),
+        )
+        exit_flow(
+            "The cosine of "
+            + str(input_value)
+            + " degrees is "
+            + str(round(cos(math.radians(input_value)), 3))
+        )
+    else:
+        print(
+            "The cosine of ",
+            input_value,
+            " radians is ",
+            round(cos(input_value), 3),
+        )
+        exit_flow(
+            "The cosine of "
+            + str(input_value)
+            + " radians is "
+            + str(round(cos(input_value), 3))
+        )
+
+def tan_function(input_value: float, suppress_rounding: bool=False):
+    type_choice = rad_or_degree()
+    if cos(math.radians(input_value) if not (type_choice) else input_value) == 0:
+        print(
+            "Tangent of ",
+            input_value,
+            "degrees" if type_choice == 0 else "radians",
+            "is undefined",
+        )
+        exit_flow(
+            "Tangent of "
+            + str(input_value)
+            + ("degrees" if type_choice == 0 else "radians")
+            + " is undefined"
+        )
+
+    if type_choice:
+        print(
+            "The tangent of ",
+            input_value,
+            " degrees is ",
+            round(tan(math.radians(input_value)), 3),
+        )
+        exit_flow(
+            "The tangent of "
+            + str(input_value)
+            + " degrees is "
+            + str(round(tan(math.radians(input_value)), 3))
+        )
+    else:
+        print(
+            "The tangent of ",
+            input_value,
+            " radians is ",
+            round(tan(input_value), 3),
+        )
+        exit_flow(
+            "The tangent of "
+            + str(input_value)
+            + " radians is "
+            + str(round(tan(input_value), 3))
+        )
+
+def to_rad_function(input_value: float, suppress_rounding: bool=False):
+    print(
+        input_value,
+        " degrees converted to radians is",
+        rad((input_value)),
+        " radians ",
+    )
+    exit_flow(
+        str(input_value)
+        + " degrees converted to radians is "
+        + str(rad((input_value)))
+        + " radians "
+    )
+
+def to_deg_function(input_value: float):
+    print(
+        input_value,
+        " radians converted to degrees is",
+        deg(input_value / 3.14 * math.pi),
+        " degrees ",
+    )
+    exit_flow(
+        str(input_value)
+        + " radians converted to degrees is "
+        + str(deg(input_value / 3.14 * math.pi))
+        + " degrees "
+    )
+
+def read_file_function():
+    read_file()
+    exit_flow("15")
+
+def calculator(switch_mode: bool, switcher: str=None, values: tuple=None):
+
     def prompt():
         # User prompt to select operation
         print("Select an operation")
@@ -491,14 +522,14 @@ def calculator():
     }
     no_inputs_dic = {"15": read_file_function}
 
-    def dic_function_runner_with_0_input(func):
+    def dic_function_runner_with_0_input(func, suppress_rounding: bool=False):
         func()
 
-    def dic_function_runner_with_2_input(args: tuple, func):
-        func(args)
+    def dic_function_runner_with_2_input(args: tuple, func, suppress_rounding: bool=False):
+        func(args, suppress_rounding)
 
-    def dic_function_runner_with_1_input(arge: float, func):
-        func(arge)
+    def dic_function_runner_with_1_input(arge: float, func, suppress_rounding: bool=False):
+        func(arge, suppress_rounding)
 
     def new_interact():
         while True:
@@ -508,7 +539,7 @@ def calculator():
                 sys.exit(0)
 
             if choice in ("1", "2", "3", "4", "5", "6"):
-                numbers = safeInputDoubleValue(
+                numbers = safe_input_double_value(
                     "Value for the first number: ", "Value for the second number: "
                 )
                 dic_function_runner_with_1_input(numbers, double_inputs_dic[choice])
@@ -523,17 +554,39 @@ def calculator():
                 print("Invalid operation selected, please try again")
                 time.sleep(2)
 
+    def switch_interact(switch: str):
+        if switch in ("1", "2", "3", "4", "5", "6"):
+            dic_function_runner_with_1_input(values, double_inputs_dic[switch], True)
+        elif switch in ("7", "8", "9"): #10, 11, 12, 13, 14 temporarily disabled
+            dic_function_runner_with_1_input(values[0], single_inputs_dic[switch], True)
+        elif switch in ("15"):
+            dic_function_runner_with_0_input(no_inputs_dic[switch], True)
+
+        else:
+            print("Invalid operation")
+
     # functionality of calculator starts here
-    new_interact()
+    if not switch_mode:
+        new_interact()
+    else:
+        switch_interact(switcher)
 
 
 # extra fail save
 try:
-    calculator()
-
+    if len(sys.argv) == 1:
+        calculator(False)
+    elif sys.argv[1] == "headless":
+        value = None
+        if len(sys.argv) == 4:
+            value = (float(sys.argv[3]), None)
+        elif len(sys.argv) >= 5:
+            value = (float(sys.argv[3]), float(sys.argv[4]))
+    
+        calculator(True, sys.argv[2], value)
 except SystemExit:
     pass
 
 except BaseException as err:
     print("Exception:" + str(err))
-# :)
+ :)
