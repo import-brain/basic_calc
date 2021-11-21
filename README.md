@@ -16,6 +16,8 @@ Please fork the project, create a new branch in the fork, and PR request changes
 
 Please follow the established naming conventions present in the code, it makes it easier for all of us to maintain this project.
 
+@@include[Contributing](https://github.com/import-brain/basic_calc/blob/main/CONTRIBUTING.md)
+
 ## TODO
 
 - [x] Add conversion to and from radians/degrees
