@@ -39,3 +39,8 @@ def test_exponent():
     assert exponent(2, 0) == 1
     assert exponent(0, 0) == 1
     assert exponent(-2, 3) == -8
+
+def test_modulo():
+    assert modulo(10, 3) == 1
+    assert modulo(10, 4) == 2
+    assert modulo(10, 1) == 0
