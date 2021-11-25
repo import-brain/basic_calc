@@ -2,7 +2,13 @@
 unit tests for major functions in calc.py
 """
 # import functions from calc.py
-from calc import add, subtract, multiply, divide
+from calc import (
+    add, 
+    subtract, 
+    multiply, 
+    divide, 
+    exponent,
+)
 
 # title function for each suite of tests
 def test_title(test):
@@ -80,8 +86,28 @@ def divide_tests():
         print("Dividing tests passed")
         separator()
         return 0
+
+def exponent_tests():
+    test_title("exponent")
+
+    try:
+        assert exponent(2, 3) == 8
+        assert exponent(1, 4) == 1
+        assert exponent(1, -4) == 1
+        assert exponent(0, 5) == 0
+        assert exponent(2, 0) == 1
+        assert exponent(9, 0.5) == 3.0
+    except AssertionError:
+        print("Exponent tests failed, check your code")
+        separator()
+        return 1
+    else:
+        print("Exponent tests passed")
+        separator()
+        return 0
 # call all test functions
 add_tests()
 subtract_tests()
 multiply_tests()
 divide_tests()
+exponent_tests()
