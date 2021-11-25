@@ -137,7 +137,7 @@ def multiply(number_1: float, number_2: float) -> float:
 
 def divide(number_1: float, number_2: float) -> float:
     """division utility, Caution:*no built-in safety protection,
-   please put this into consideration when using this function*"""
+    please put this into consideration when using this function*"""
     return number_1 / number_2
 
 def exponent(number_1: float, number_2: float) -> float:
@@ -146,7 +146,7 @@ def exponent(number_1: float, number_2: float) -> float:
 
 def modulo(number_1: float, number_2: float) -> float:
     """modulo/remainder utility, Caution:*no built-in safety protection,
-   please put this into consideration when using this function*"""
+    please put this into consideration when using this function*"""
     return number_1 % number_2
 
 def sqrroot(number_1: float) -> float:
@@ -167,12 +167,12 @@ def sin(number_1: float) -> float:
 
 def cos(number_1: float) -> float:
     """cos utility, Caution:*no built-in safety protection,
-   please put this into consideration when using this function*"""
+    please put this into consideration when using this function*"""
     return math.cos(number_1)
 
 def tan(number_1: float) -> float:
     """tan utility, Caution:*no built-in safety protection,
-   please put this into consideration when using this function*"""
+    please put this into consideration when using this function*"""
     return math.tan(number_1)
 
 def rad(number_1: float) -> float:
@@ -479,112 +479,113 @@ def read_file_function():
     read_file()
     exit_flow("15")
 
-def calculator(switch_mode: bool, switcher: str=None, values: tuple=None):
+if __name__ == "__main__":
+    def calculator(switch_mode: bool, switcher: str=None, values: tuple=None):
 
-    def prompt():
-        # User prompt to select operation
-        print("Select an operation")
-        print("1. add")
-        print("2. subtract")
-        print("3. multiply")
-        print("4. divide")
-        print("5. exponent")
-        print("6. modulo/remainder")
-        print("7. square root")
-        print("8. circumference")
-        print("9. area of circle")
-        print("10. sine")
-        print("11. cosine")
-        print("12. tangent")
-        print("13. convert degrees to radians")
-        print("14. convert radians to degrees")
-        print("15. read previous calculations")
-        print("-E to exit")
+        def prompt():
+            # User prompt to select operation
+            print("Select an operation")
+            print("1. add")
+            print("2. subtract")
+            print("3. multiply")
+            print("4. divide")
+            print("5. exponent")
+            print("6. modulo/remainder")
+            print("7. square root")
+            print("8. circumference")
+            print("9. area of circle")
+            print("10. sine")
+            print("11. cosine")
+            print("12. tangent")
+            print("13. convert degrees to radians")
+            print("14. convert radians to degrees")
+            print("15. read previous calculations")
+            print("-E to exit")
 
-    double_inputs_dic = {
-        "1": add_function,
-        "2": subt_function,
-        "3": mult_function,
-        "4": div_function,
-        "5": sqr_function,
-        "6": mod_function,
-    }
-    single_inputs_dic = {
-        "7": sqrt_function,
-        "8": circumference_function,
-        "9": area_function,
-        "10": sin_function,
-        "11": cos_function,
-        "12": tan_function,
-        "13": to_rad_function,
-        "14": to_deg_function,
-    }
-    no_inputs_dic = {"15": read_file_function}
+        double_inputs_dic = {
+            "1": add_function,
+            "2": subt_function,
+            "3": mult_function,
+            "4": div_function,
+            "5": sqr_function,
+            "6": mod_function,
+        }
+        single_inputs_dic = {
+            "7": sqrt_function,
+            "8": circumference_function,
+            "9": area_function,
+            "10": sin_function,
+            "11": cos_function,
+            "12": tan_function,
+            "13": to_rad_function,
+            "14": to_deg_function,
+        }
+        no_inputs_dic = {"15": read_file_function}
 
-    def dic_function_runner_with_0_input(func, suppress_rounding: bool=False):
-        func()
+        def dic_function_runner_with_0_input(func, suppress_rounding: bool=False):
+            func()
 
-    def dic_function_runner_with_2_input(args: tuple, func, suppress_rounding: bool=False):
-        func(args, suppress_rounding)
+        def dic_function_runner_with_2_input(args: tuple, func, suppress_rounding: bool=False):
+            func(args, suppress_rounding)
 
-    def dic_function_runner_with_1_input(arge: float, func, suppress_rounding: bool=False):
-        func(arge, suppress_rounding)
+        def dic_function_runner_with_1_input(arge: float, func, suppress_rounding: bool=False):
+            func(arge, suppress_rounding)
 
-    def new_interact():
-        while True:
-            prompt()
-            choice = input("Enter choice(1/2/3/4/5/6/7/8/9/10/11/12/13/14/15):")
-            if choice.__eq__("-E"):
-                sys.exit(0)
+        def new_interact():
+            while True:
+                prompt()
+                choice = input("Enter choice(1/2/3/4/5/6/7/8/9/10/11/12/13/14/15):")
+                if choice.__eq__("-E"):
+                    sys.exit(0)
 
-            if choice in ("1", "2", "3", "4", "5", "6"):
-                numbers = safe_input_double_value(
-                    "Value for the first number: ", "Value for the second number: "
-                )
-                dic_function_runner_with_1_input(numbers, double_inputs_dic[choice])
-            elif choice in ("7", "8", "9", "10", "11", "12", "13", "14"):
-                number = safe_input_single_value("Enter Number: ")
-                dic_function_runner_with_1_input(number, single_inputs_dic[choice])
+                if choice in ("1", "2", "3", "4", "5", "6"):
+                    numbers = safe_input_double_value(
+                        "Value for the first number: ", "Value for the second number: "
+                    )
+                    dic_function_runner_with_1_input(numbers, double_inputs_dic[choice])
+                elif choice in ("7", "8", "9", "10", "11", "12", "13", "14"):
+                    number = safe_input_single_value("Enter Number: ")
+                    dic_function_runner_with_1_input(number, single_inputs_dic[choice])
 
-            elif choice in ("15"):
-                dic_function_runner_with_0_input(no_inputs_dic[choice])
+                elif choice in ("15"):
+                    dic_function_runner_with_0_input(no_inputs_dic[choice])
+
+                else:
+                    print("Invalid operation selected, please try again")
+                    time.sleep(2)
+
+        def switch_interact(switch: str):
+            if switch in ("1", "2", "3", "4", "5", "6"):
+                dic_function_runner_with_1_input(values, double_inputs_dic[switch], True)
+            elif switch in ("7", "8", "9"): #10, 11, 12, 13, 14 temporarily disabled
+                dic_function_runner_with_1_input(values[0], single_inputs_dic[switch], True)
+            elif switch in ("15"):
+                dic_function_runner_with_0_input(no_inputs_dic[switch], True)
 
             else:
-                print("Invalid operation selected, please try again")
-                time.sleep(2)
+                print("Invalid operation")
 
-    def switch_interact(switch: str):
-        if switch in ("1", "2", "3", "4", "5", "6"):
-            dic_function_runner_with_1_input(values, double_inputs_dic[switch], True)
-        elif switch in ("7", "8", "9"): #10, 11, 12, 13, 14 temporarily disabled
-            dic_function_runner_with_1_input(values[0], single_inputs_dic[switch], True)
-        elif switch in ("15"):
-            dic_function_runner_with_0_input(no_inputs_dic[switch], True)
-
+        # functionality of calculator starts here
+        if not switch_mode:
+            new_interact()
         else:
-            print("Invalid operation")
-
-    # functionality of calculator starts here
-    if not switch_mode:
-        new_interact()
-    else:
-        switch_interact(switcher)
+            switch_interact(switcher)
 
 
-# extra fail save
-try:
-    if len(sys.argv) == 1:
-        calculator(False)
-    elif sys.argv[1] == "headless":
-        value = None
-        if len(sys.argv) == 4:
-            value = (float(sys.argv[3]), None)
-        elif len(sys.argv) >= 5:
-            value = (float(sys.argv[3]), float(sys.argv[4]))
-    
-        calculator(True, sys.argv[2], value)
-except SystemExit:
-    pass
+    # extra fail save
+    try:
+        if len(sys.argv) == 1:
+            calculator(False)
+        elif sys.argv[1] == "headless":
+            value = None
+            if len(sys.argv) == 4:
+                value = (float(sys.argv[3]), None)
+            elif len(sys.argv) >= 5:
+                value = (float(sys.argv[3]), float(sys.argv[4]))
+        
+            calculator(True, sys.argv[2], value)
+    except SystemExit:
+        pass
 
-except BaseException as err:
-    print("Exception:" + str(err))
+    except BaseException as err:
+        print("Exception:" + str(err))
