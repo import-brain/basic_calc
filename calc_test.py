@@ -1,6 +1,7 @@
 # I know import * is bad convention, but I'm not sure how to do it better
 # without listing all the functions in calc.py and having a super long line
 from calc import *
+# TODO: finish adding tests for all major functions in calc.py
 # test suite below
 def test_add():
     assert add(1, 2) == 3
