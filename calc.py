@@ -1,5 +1,5 @@
 import math
-import cmath #incased needed for imaginary numbers
+import cmath # might be needed for imaginary numbers
 import sys
 import time
 from platform import system
@@ -93,7 +93,6 @@ def safe_input_single_value(prompt_message: str) -> float:
     value = None
     while value == None:
         value = safe_convert(input(prompt_message), None, float)
-
     return value
 
 def safe_input_double_value(prompt_message_1: str, prompt_message_2: str) -> tuple:
