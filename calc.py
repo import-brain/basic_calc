@@ -110,14 +110,14 @@ def safe_input_double_value(prompt_message_1: str, prompt_message_2: str) -> tup
     return (number_1, number_2)
 
 def run_and_round2_value(number_1: float, number_2: float, func, suppress_rounding: bool=False) -> float:
-    """function that excecute a function and auto rounds, aquire rounding place by asking for it, this function only support functions that use 2 arguments"""
+    """function that executes a function and auto rounds, acquires rounding place by asking for it, this function only support functions that use 2 arguments"""
     if suppress_rounding:
         return func(number_1, number_2)
     else:
         return round(func(number_1, number_2), safe_input_single_value("Rounding Place:"))
 
 def run_and_round1_value(number_1: float, func, suppress_rounding: bool=False) -> float:
-    """function that excecute a function and auto rounds, aquire rounding place by asking for it, this function only support functions that use 1 arguments"""
+    """function that executes a function and auto rounds, acquires rounding place by asking for it, this function only support functions that use 1 arguments"""
     if suppress_rounding:
         return func(number_1)
     else:
@@ -227,7 +227,7 @@ def subt_function(inputs: tuple, suppress_rounding: bool=False):
         )
 
 def mult_function(inputs: tuple, suppress_rounding: bool=False):
-    """mutiplication functionality wrapper, this is not a helper function"""
+    """multiplication functionality wrapper, this is not a helper function"""
     print(
         inputs[0],
         "*",
@@ -245,7 +245,7 @@ def mult_function(inputs: tuple, suppress_rounding: bool=False):
         )
 
 def div_function(inputs: tuple, suppress_rounding: bool=False):
-    """division fuctionality wrapper, this is not a helper function, divide by 0 check is implemented"""
+    """division functionality wrapper, this is not a helper function, divide by 0 check is implemented"""
     if inputs[1] == 0:  # if user attempts to input by 0, return error message
         print("Oops! Numbers cannot be divided by 0")
     else:
