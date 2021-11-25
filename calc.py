@@ -137,7 +137,7 @@ def multiply(number_1: float, number_2: float) -> float:
 
 def divide(number_1: float, number_2: float) -> float:
     """division utility, Caution: *no built-in safety protection,
-    please put this into consideration when using this function*"""
+    please take this into consideration when using this function*"""
     return number_1 / number_2
 
 def exponent(number_1: float, number_2: float) -> float:
