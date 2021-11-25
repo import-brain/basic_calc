@@ -32,3 +32,10 @@ def test_divide():
     assert divide(-10, 2) == -5
     assert divide(-5, 5) == -1
     assert divide(0, 1) == 0
+
+def test_exponent():
+    assert exponent(2, 3) == 8
+    assert exponent(2, -2) == 0.25
+    assert exponent(2, 0) == 1
+    assert exponent(0, 0) == 1
+    assert exponent(-2, 3) == -8
