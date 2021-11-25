@@ -44,3 +44,9 @@ def test_modulo():
     assert modulo(10, 3) == 1
     assert modulo(10, 4) == 2
     assert modulo(10, 1) == 0
+
+def test_sqrroot():
+    assert sqrroot(9) == 3
+    assert sqrroot(25) == 5
+    assert sqrroot(0) == 0
+    assert sqrroot(1) == 1
