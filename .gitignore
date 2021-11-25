@@ -3,4 +3,4 @@ build/
 __pycache__/
 *.txt
 *.spec
-
+.pytest_cache/
