@@ -8,7 +8,7 @@ BasicCalc is a small, command-line calculator that performs the standard four ma
 
 REQUIRES PYTHON VERSION 3.10 OR LATER
 
-Download the latest release on the right of the main repo page, extract it using an unzipper (WinRar, 7Zip, unzip command for Linux aficionados, etc.), and scroll down until you find a file named something similar to "calc.exe" for your operating system. This file is the calculator. Enjoy! :)
+Download the latest release on the right of the main repo page, extract it using an unzipping utility (WinRar, 7Zip, unzip command for Linux aficionados, etc.), and scroll down until you find a file named something similar to "calc.exe" for your operating system. This file is the calculator. Enjoy! :)
 
 ## CONTRIBUTORS/CONTRIBUTING
 
@@ -26,6 +26,7 @@ Please follow the established naming conventions present in the code, it makes i
 - [x] Refactor if-else-elif statements to use new "match" statement introduced in Python 3.10
 - [x] Add a safety feature (not just intentionally crashing users) for "match" statements when user is not using Python 3.10 or above (add a legacy component that still        uses if-else-elif statements could be a good route)
 - [x] Remove redundant code
+- [ ] Add unit tests (IMPORTANT)
 - [ ] Add comments in calc.py to elaborate on usage of dictionary for functions
 - [ ] Add ability for program to read from config file for options (e.g. rounding place, save to file, etc.)
 - [x] Reconstruct program structure to support switch arguments based function as a precursor to using TKinter
