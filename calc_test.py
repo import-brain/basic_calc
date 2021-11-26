@@ -60,3 +60,19 @@ def test_area():
     assert circle_area(3) == 28.274333882308138
     assert circle_area(1) == 3.141592653589793
     assert circle_area(10) == 314.1592653589793
+
+def test_sin():
+    assert sin(0) == 0
+    assert sin(1) == 0.8414709848078965
+    assert sin(2) == 0.9092974268256817
+    assert sin(3) == 0.1411200080598672
+
+def test_cos():
+    assert cos(0) == 1
+    assert cos(1) == 0.5403023058681398
+
+def test_tan():
+    assert tan(0) == 0
+    assert tan(1) == 1.557407724654902
+    assert tan(2) == -2.185039863261519
+    assert tan(3) == -0.1425465430742778
