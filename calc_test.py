@@ -50,3 +50,8 @@ def test_sqrroot():
     assert sqrroot(25) == 5
     assert sqrroot(0) == 0
     assert sqrroot(1) == 1
+
+def test_circumference():
+    assert circumference(3) == 9.42477796076938
+    assert circumference(1) == 3.141592653589793
+    assert circumference(10) == 31.41592653589793
