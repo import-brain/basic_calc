@@ -565,8 +565,7 @@ if __name__ == "__main__":
         else:
             switch_interact(switcher)
 
-
-    # extra fail save
+    # extra fail safe
     try:
         if len(sys.argv) == 1:
             calculator(False)
