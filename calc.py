@@ -14,14 +14,12 @@ def version_check() -> bool:
     else:
         return False
 
-
 def safe_convert(value: str, default_value: str, function):
     """conversion tool that can handle conversions, however, option for default valve is added incase conversion is failed"""
     try:
         return function(value)
     except ValueError:
         return default_value
-
 
 # DO NOT port exit_flow!
 def exit_flow(printed_message: str):
@@ -52,7 +50,6 @@ def exit_flow(printed_message: str):
         time.sleep(2)
         exit_flow("number_1")
 
-
 def write_file(what_to_write: str):
     file_name = str(input("Desired file name: (-E to cancel)") + ".txt")
     if file_name.__eq__("-E"):
@@ -67,7 +64,6 @@ def write_file(what_to_write: str):
         with open(file_name, mode="a") as file_object:
             print(what_to_write, file=file_object)
     print("Calculation saved to ", file_name)
-
 
 def read_file():
     file_name = str(input("Which storage file would you like to read?(-E to exit)"))
@@ -85,9 +81,7 @@ def read_file():
         print("File not found, please try again")
         time.sleep(1)
         read_file()
-
     pass
-
 def safe_input_single_value(prompt_message: str) -> float:
     """Input utility that gets a float value as an output, it is protected using safe_convert"""
     value = None
