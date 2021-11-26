@@ -55,3 +55,8 @@ def test_circumference():
     assert circumference(3) == 9.42477796076938
     assert circumference(1) == 3.141592653589793
     assert circumference(10) == 31.41592653589793
+
+def test_area():
+    assert circle_area(3) == 28.274333882308138
+    assert circle_area(1) == 3.141592653589793
+    assert circle_area(10) == 314.1592653589793
