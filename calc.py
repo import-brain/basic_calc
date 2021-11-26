@@ -49,7 +49,7 @@ def exit_flow(printed_message: str):
         print("Invalid answer, please try again")
         time.sleep(2)
         exit_flow("number_1")
-
+# write to file function
 def write_file(what_to_write: str):
     file_name = str(input("Desired file name: (-E to cancel)") + ".txt")
     if file_name.__eq__("-E"):
