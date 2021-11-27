@@ -23,7 +23,7 @@ workflows:
       jobs:
         - pytest/pytest:
             python_version: '3.10.0' 
-            install_args: pytest
+            install_args: pytest-cov
             args: -v --cov --cov-report=xml
         - upload-to-codecov:
             requires:
