@@ -27,6 +27,7 @@ Please follow the established naming conventions present in the code, it makes i
 - [x] Add a safety feature (not just intentionally crashing users) for "match" statements when user is not using Python 3.10 or above (add a legacy component that still        uses if-else-elif statements could be a good route)
 - [x] Remove redundant code
 - [ ] Finish unit tests (IMPORTANT)
+- [ ] Add coverage report functionality
 - [ ] Add comments in calc.py to elaborate on usage of dictionary for functions
 - [ ] Add ability for program to read from config file for options (e.g. rounding place, save to file, etc.)
 - [x] Reconstruct program structure to support switch arguments based function as a precursor to using TKinter
