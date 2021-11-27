@@ -14,12 +14,14 @@ def version_check() -> bool:
     else:
         return False
 
+
 def safe_convert(value: str, default_value: str, function):
     """conversion tool that can handle conversions, however, option for default valve is added incase conversion is failed"""
     try:
         return function(value)
     except ValueError:
         return default_value
+
 
 # DO NOT port exit_flow!
 def exit_flow(printed_message: str):
@@ -49,7 +51,8 @@ def exit_flow(printed_message: str):
         print("Invalid answer, please try again")
         time.sleep(2)
         exit_flow("number_1")
-# write to file function
+
+
 def write_file(what_to_write: str):
     file_name = str(input("Desired file name: (-E to cancel)") + ".txt")
     if file_name.__eq__("-E"):
@@ -64,6 +67,7 @@ def write_file(what_to_write: str):
         with open(file_name, mode="a") as file_object:
             print(what_to_write, file=file_object)
     print("Calculation saved to ", file_name)
+
 
 def read_file():
     file_name = str(input("Which storage file would you like to read?(-E to exit)"))
@@ -81,12 +85,21 @@ def read_file():
         print("File not found, please try again")
         time.sleep(1)
         read_file()
+
     pass
+
 def safe_input_single_value(prompt_message: str) -> float:
     """Input utility that gets a float value as an output, it is protected using safe_convert"""
     value = None
     while value == None:
         value = safe_convert(input(prompt_message), None, float)
+    return value
+
+def safe_input_single_value_int(prompt_message: str) -> int:
+    """Input utility that gets a float value as an output, it is protected using safe_convert"""
+    value = None
+    while value == None:
+        value = safe_convert(input(prompt_message), None, int)
     return value
 
 def safe_input_double_value(prompt_message_1: str, prompt_message_2: str) -> tuple:
@@ -108,14 +121,14 @@ def run_and_round2_value(number_1: float, number_2: float, func, suppress_roundi
     if suppress_rounding:
         return func(number_1, number_2)
     else:
-        return round(func(number_1, number_2), safe_input_single_value("Rounding Place:"))
+        return round(func(number_1, number_2), safe_input_single_value_int("Rounding Place:"))
 
 def run_and_round1_value(number_1: float, func, suppress_rounding: bool=False) -> float:
     """function that executes a function and auto rounds, acquires rounding place by asking for it, this function only support functions that use 1 arguments"""
     if suppress_rounding:
         return func(number_1)
     else:
-        return round(func(number_1), safe_input_single_value("Rounding Place:"))
+        return round(func(number_1), safe_input_single_value_int("Rounding Place:"))
 
 def add(number_1: float, number_2: float) -> float:
     """addition utility"""
@@ -565,7 +578,8 @@ if __name__ == "__main__":
         else:
             switch_interact(switcher)
 
-    # extra fail safe
+
+    # extra fail save
     try:
         if len(sys.argv) == 1:
             calculator(False)
