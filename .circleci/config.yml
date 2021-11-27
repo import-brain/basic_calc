@@ -32,6 +32,6 @@ workflows:
         - pytest/pytest:
             python_version: '3.10.0' 
             install_args: pytest -v
-    upload-to-codecov:
-      jobs:
-        - upload-to-codecov
+        - upload-to-codecov:
+            requires:
+              - pytest/pytest
