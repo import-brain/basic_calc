@@ -588,7 +588,8 @@ if __name__ == "__main__":
         # functionality of calculator starts here
         if not switch_mode:#indicates that it wants headed operation
             new_interact()
-        else:#indicates it wants headless operation
+        else: # indicates it wants headless operation
+
             switch_interact(switcher)
 
 
