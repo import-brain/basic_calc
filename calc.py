@@ -216,7 +216,7 @@ def add_function(inputs: tuple, suppress_rounding: bool=False):
         )
 
 def subt_function(inputs: tuple, suppress_rounding: bool=False):
-    """subtation functionality wrapper, this is not a helper function"""
+    """subtraction functionality wrapper, this is not a helper function"""
     print(
         inputs[0],
         "-",
