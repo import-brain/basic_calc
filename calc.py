@@ -97,7 +97,7 @@ def safe_input_single_value(prompt_message: str) -> float:
 
 def safe_input_single_value_int(prompt_message: str) -> int:
     """Input utility that gets a float value as an output, it is protected using safe_convert.
-   But unlike the one without _int, this returns int instead of float"""
+    But unlike the one without _int, this returns int instead of float"""
     value = None
     while value == None:
         value = safe_convert(input(prompt_message), None, int)
