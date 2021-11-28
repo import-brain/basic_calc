@@ -1,6 +1,7 @@
 # I know import * is bad convention, but I'm not sure how to do it better
 # without listing all the functions in calc.py and having a super long line
 from calc import *
+import pytest
 # TODO: finish adding tests for all major functions in calc.py
 # test suite below
 def test_add():
@@ -52,40 +53,40 @@ def test_sqrroot():
     assert sqrroot(1) == 1
 
 def test_circumference():
-    assert circumference(3) == 9.42477796076938
-    assert circumference(1) == 3.141592653589793
-    assert circumference(10) == 31.41592653589793
+    assert circumference(3) == pytest.approx(9.42477796076938)
+    assert circumference(1) == pytest.approx(3.141592653589793)
+    assert circumference(10) == pytest.approx(31.41592653589793)
 
 def test_area():
-    assert circle_area(3) == 28.274333882308138
-    assert circle_area(1) == 3.141592653589793
-    assert circle_area(10) == 314.1592653589793
+    assert circle_area(3) == pytest.approx(28.274333882308138)
+    assert circle_area(1) == pytest.approx(3.141592653589793)
+    assert circle_area(10) == pytest.approx(314.1592653589793)
 
 def test_sin():
     assert sin(0) == 0
-    assert sin(1) == 0.8414709848078965
-    assert sin(2) == 0.9092974268256817
-    assert sin(3) == 0.1411200080598672
+    assert sin(1) == pytest.approx(0.8414709848078965)
+    assert sin(2) == pytest.approx(0.9092974268256817)
+    assert sin(3) == pytest.approx(0.1411200080598672)
 
 def test_cos():
     assert cos(0) == 1
-    assert cos(1) == 0.5403023058681398
+    assert cos(1) == pytest.approx(0.5403023058681398)
 
 def test_tan():
     assert tan(0) == 0
-    assert tan(7) == 0.8714479827243189
-    assert tan(2) == -2.185039863261519
-    assert tan(3) == -0.1425465430742778
+    assert tan(7) == pytest.approx(0.8714479827243189)
+    assert tan(2) == pytest.approx(-2.185039863261519)
+    assert tan(3) == pytest.approx(-0.1425465430742778)
 
 def test_rad():
     assert rad(0) == 0
-    assert rad(1) == 0.017453292519943295
-    assert rad(2) == 0.03490658503988659
-    assert rad(3) == 0.05235987755982989
+    assert rad(1) == pytest.approx(0.017453292519943295)
+    assert rad(2) == pytest.approx(0.03490658503988659)
+    assert rad(3) == pytest.approx(0.05235987755982989)
 
 def test_deg():
     assert deg(0) == 0
-    assert deg(3.141592653589793) == 180
-    assert deg(6.283185307179586) == 360
-    assert deg(9.42477796076938) == 540
-    assert deg(5.235987755982989) == 300
+    assert deg(3.141592653589793) == pytest.approx(180)
+    assert deg(6.283185307179586) == pytest.approx(360)
+    assert deg(9.42477796076938) == pytest.approx(540)
+    assert deg(5.235987755982989) == pytest.approx(300)
