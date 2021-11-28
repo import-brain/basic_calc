@@ -73,7 +73,7 @@ def test_cos():
 
 def test_tan():
     assert tan(0) == 0
-    assert tan(1) == 1.5574077246549023
+    assert tan(7) == 0.8714479827243189
     assert tan(2) == -2.185039863261519
     assert tan(3) == -0.1425465430742778
 
