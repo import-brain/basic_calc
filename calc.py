@@ -604,7 +604,8 @@ try:
             value = (float(sys.argv[3]), float(sys.argv[4]))
     
         calculator(True, sys.argv[2], value)
-except SystemExit: #systemexit is used intentionaly for exiting program purposes
+except SystemExit: # systemexit is used intentionally for exiting program purposes
+
     pass
 
 except BaseException as err:
