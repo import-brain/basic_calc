@@ -73,6 +73,19 @@ def test_cos():
 
 def test_tan():
     assert tan(0) == 0
-    assert tan(1) == 1.5574077246549023
+    assert tan(1) == 1.557407724654902
     assert tan(2) == -2.185039863261519
     assert tan(3) == -0.1425465430742778
+
+def test_rad():
+    assert rad(0) == 0
+    assert rad(1) == 0.017453292519943295
+    assert rad(2) == 0.03490658503988659
+    assert rad(3) == 0.05235987755982989
+
+def test_deg():
+    assert deg(0) == 0
+    assert deg(3.141592653589793) == 180
+    assert deg(6.283185307179586) == 360
+    assert deg(9.42477796076938) == 540
+    assert deg(5.235987755982989) == 300
