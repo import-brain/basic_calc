@@ -96,7 +96,8 @@ def safe_input_single_value(prompt_message: str) -> float:
     return value
 
 def safe_input_single_value_int(prompt_message: str) -> int:
-    """Input utility that gets a float value as an output, it is protected using safe_convert"""
+    """Input utility that gets a float value as an output, it is protected using safe_convert.
+    But unlike the one without _int, this returns int instead of float"""
     value = None
     while value == None:
         value = safe_convert(input(prompt_message), None, int)
@@ -341,6 +342,7 @@ def circumference_function(input_value: float, suppress_rounding: bool=False):
         )
 
 def area_function(input_value: float, suppress_rounding: bool=False):
+    """circle area functionality wrapper, this is not a helper function"""
     print(
         "A circle with radius",
         input_value,
@@ -356,6 +358,7 @@ def area_function(input_value: float, suppress_rounding: bool=False):
         )
 
 def sin_function(input_value: float, suppress_rounding: bool=False):
+    """sin functionality wrapper, this is not a helper function, support both rad and degree"""
     if rad_or_degree():
         print(
             "The sine of ",
@@ -384,6 +387,7 @@ def sin_function(input_value: float, suppress_rounding: bool=False):
         )
 
 def cos_function(input_value: float, suppress_rounding: bool=False):
+    """cos functionality wrapper, this is not a helper function, support both rad and degree"""
     if rad_or_degree():
         print(
             "The cosine of ",
@@ -412,6 +416,7 @@ def cos_function(input_value: float, suppress_rounding: bool=False):
         )
 
 def tan_function(input_value: float, suppress_rounding: bool=False):
+    """tan functionality wrapper, this is not a helper function, support both rad and degree and has 0 check implemented"""
     type_choice = rad_or_degree()
     if cos(math.radians(input_value) if not (type_choice) else input_value) == 0:
         print(
@@ -455,6 +460,7 @@ def tan_function(input_value: float, suppress_rounding: bool=False):
         )
 
 def to_rad_function(input_value: float, suppress_rounding: bool=False):
+    """degree to radian functionality wrapper, this is not a helper function and is independent of sin/cos/tan functionality wrapper"""
     print(
         input_value,
         " degrees converted to radians is",
@@ -469,6 +475,7 @@ def to_rad_function(input_value: float, suppress_rounding: bool=False):
     )
 
 def to_deg_function(input_value: float):
+    """radian to degree functionality wrapper, this is not a helper function and is independent of sin/cos/tan functionality wrapper"""
     print(
         input_value,
         " radians converted to degrees is",
@@ -483,14 +490,15 @@ def to_deg_function(input_value: float):
     )
 
 def read_file_function():
+    """read file functionality wrapper"""
     read_file()
     exit_flow("15")
 
 if __name__ == "__main__":
     def calculator(switch_mode: bool, switcher: str=None, values: tuple=None):
-
+        """calcualtor main"""
         def prompt():
-            # User prompt to select operation
+            """prompting user to select operation and what they can do"""
             print("Select an operation")
             print("1. add")
             print("2. subtract")
@@ -530,15 +538,19 @@ if __name__ == "__main__":
         no_inputs_dic = {"15": read_file_function}
 
         def dic_function_runner_with_0_input(func, suppress_rounding: bool=False):
+            """A utility that runs a function that doesn't take any argument from dictionary, func is argument, not a funciton name"""
             func()
 
         def dic_function_runner_with_2_input(args: tuple, func, suppress_rounding: bool=False):
+            """A utility that runs a function that takes 2 argument from dictionary, func is argument, not a funciton name"""
             func(args, suppress_rounding)
 
         def dic_function_runner_with_1_input(arge: float, func, suppress_rounding: bool=False):
+            """A utility that runs a function that takes 1 argument from dictionary, func is argument, not a funciton name"""
             func(arge, suppress_rounding)
 
         def new_interact():
+            """Interact function, this handles the main loop of the program"""
             while True:
                 prompt()
                 choice = input("Enter choice(1/2/3/4/5/6/7/8/9/10/11/12/13/14/15):")
@@ -562,6 +574,7 @@ if __name__ == "__main__":
                     time.sleep(2)
 
         def switch_interact(switch: str):
+            """this is used when headless operation is initialized"""
             if switch in ("1", "2", "3", "4", "5", "6"):
                 dic_function_runner_with_1_input(values, double_inputs_dic[switch], True)
             elif switch in ("7", "8", "9"): #10, 11, 12, 13, 14 temporarily disabled
@@ -573,26 +586,29 @@ if __name__ == "__main__":
                 print("Invalid operation")
 
         # functionality of calculator starts here
-        if not switch_mode:
+        if not switch_mode: # indicates that it wants headed operation
+
             new_interact()
-        else:
+        else: # indicates it wants headless operation
+
             switch_interact(switcher)
 
 
-    # extra fail save
-    try:
-        if len(sys.argv) == 1:
-            calculator(False)
-        elif sys.argv[1] == "headless":
-            value = None
-            if len(sys.argv) == 4:
-                value = (float(sys.argv[3]), None)
-            elif len(sys.argv) >= 5:
-                value = (float(sys.argv[3]), float(sys.argv[4]))
-        
-            calculator(True, sys.argv[2], value)
-    except SystemExit:
-        pass
+# extra fail save
+try:
+    if len(sys.argv) == 1:
+        calculator(False)
+    elif sys.argv[1] == "headless":
+        value = None
+        if len(sys.argv) == 4:
+            value = (float(sys.argv[3]), None)
+        elif len(sys.argv) >= 5:
+            value = (float(sys.argv[3]), float(sys.argv[4]))
+    
+        calculator(True, sys.argv[2], value)
+except SystemExit: # systemexit is used intentionally for exiting program purposes
 
-    except BaseException as err:
-        print("Exception:" + str(err))
+    pass
+
+except BaseException as err:
+    print("Exception:" + str(err))
