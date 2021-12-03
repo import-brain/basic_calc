@@ -6,7 +6,7 @@ version: 2.1
 # See: https://circleci.com/docs/2.0/orb-intro/
 orbs:
   pytest: thekevjames/pytest@0.0.60
-  codecov: codecov/codecov@3.2.2
+  coverage-reporter: codacy/coverage-reporter@13.5.3
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
@@ -20,9 +20,11 @@ workflows:
         - pytest/pytest:
             python_version: '3.10.0' 
             install_args: pytest-cov
-            args: -v --cov --cov-report=xml:/tmp/cov_reports/coverage.xml
+            args: -v --cov --cov-report=xml:coverage.xml
             post-steps:
-              - codecov/upload:
-                file: /tmp/cov_reports/coverage.xml
+              - coverage-reporter/send_report:
+                  coverage-reports: coverage.xml
+                  project-token: $CODACY_PROJECT_TOKEN
+
         
 
