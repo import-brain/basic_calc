@@ -4,70 +4,68 @@ import sys
 
 import time
 
-
 # adding
+def add(x, y):
+    return x + y
+
+# subtracting
+
+def subtract(x, y):
+    return x - y
+
+# multiplying
+
+def multiply(x, y):
+    return x * y
+
+# dividing
+
+def divide(x, y):
+    return x / y
+
+# exponentiation
+
+def exponent(x, y):
+    return x ** y
+
+# modulo/remainder/whatever you want to call it
+
+def modulo(x, y):
+    return x % y
+
+# square root
+
+def sqrroot(x):
+    return math.sqrt(x)
+
+# circumference
+
+def circumference(x):
+    return math.pi * x
+
+# area of circle
+
+def circle_area(x):
+    return math.pi * (x ** 2)
+
+# sin, cos, tan
+
+def sin(x):
+    return math.sin(x)
+
+def cos(x):
+    return math.cos(x)
+
+def tan(x):
+    return math.tan(x)
+
+def rad(x):
+    return math.radians(x)
+
+def deg(x):
+    return math.degrees(x)
 
 def calculator():
-    def add(x, y):
-        return x + y
-
-    # subtracting
-
-    def subtract(x, y):
-        return x - y
-
-    # multiplying
-
-    def multiply(x, y):
-        return x * y
-
-    # dividing
-
-    def divide(x, y):
-        return x / y
-
-    # exponentiation
-
-    def exponent(x, y):
-        return x ** y
-
-    # modulo/remainder/whatever you want to call it
-
-    def modulo(x, y):
-        return x % y
-
-    # square root
-
-    def sqrroot(x):
-        return math.sqrt(x)
-
-    # circumference
-
-    def circumference(x):
-        return pi * x
-
-    # area of circle
-
-    def circle_area(x):
-        return pi * (x ** 2)
-
-    # sin, cos, tan
-
-    def sin(x):
-        return math.sin(x)
-
-    def cos(x):
-        return math.cos(x)
-
-    def tan(x):
-        return math.tan(x)
-
-    def rad(x):
-        return math.radians(x)
-
-    def deg(x):
-        return math.degrees(x)
-
     def rad_or_degree(): # rad or degree choice picker function
         rad_or_degree = input("Degrees or radians? Enter 0 for degrees, 1 for radians: ")
 
@@ -80,7 +78,7 @@ def calculator():
         elif rad_or_degree == '0':
             return 0
 
-    pi = 3.14
+    math.pi = 3.14
 
     # User prompt to select operation
 
@@ -207,8 +205,8 @@ def calculator():
 
         elif choice == '14':
             measure = float(input("Radian measure to be converted to degrees: "))
-            print(measure, " radians converted to degrees is", deg(measure / 3.14 * math.pi), " degrees ")
-            exit_flow(str(measure) + " radians converted to degrees is " + str(deg(measure / 3.14 * math.pi)) + " degrees ")
+            print(measure, " radians converted to degrees is", deg(measure / 3.14 * math.math.pi), " degrees ")
+            exit_flow(str(measure) + " radians converted to degrees is " + str(deg(measure / 3.14 * math.math.pi)) + " degrees ")
 
         elif choice == '15':
             read_file()
@@ -268,6 +266,6 @@ def read_file():
         read_file()
 
     
-
-calculator()
+if __name__ == "__main__":
+    calculator()
 # :)

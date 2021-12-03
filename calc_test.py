@@ -2,7 +2,6 @@
 # without listing all the functions in calc.py and having a super long line
 from calc import *
 import pytest
-# TODO: finish adding tests for all major functions in calc.py
 # test suite below
 def test_add():
     assert add(1, 2) == 3
