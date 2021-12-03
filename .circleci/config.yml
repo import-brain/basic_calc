@@ -20,7 +20,7 @@ workflows:
         - pytest/pytest:
             python_version: '3.10.0' 
             install_args: pytest-cov
-            args: -v --cov --cov-report=xml:/tmp/cov_reports
+            args: -v --cov --cov-report=xml:/tmp/cov_reports/coverage.xml
             post-steps:
               - codecov/upload:
                 file: /tmp/cov_reports/coverage.xml
