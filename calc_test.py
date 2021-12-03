@@ -90,28 +90,3 @@ def test_deg():
     assert deg(6.283185307179586) == pytest.approx(360)
     assert deg(9.42477796076938) == pytest.approx(540)
     assert deg(5.235987755982989) == pytest.approx(300)
-
-# integration tests below
-
-def test_add_flow():
-    import calc
-    input_values = [1, 2, 3, 1]
-    output = []
-
-    def mock_input(s):
-        output.append(s)
-        return input_values.pop(0)
-    
-    calc.input = mock_input
-    calc.print = lambda s : output.append(s)
-
-    calc.calculator()
-
-    assert output == [
-        'Enter choice(1/2/3/4/5/6/7/8/9/10/11/12/13/14/15):',
-        'repeat if bad value is entered (bad values are anything that is not a number)',
-        'Value for the first number: ',
-        'Value for the second number: ', 
-        'Rounding Place:',
-        '2.0 + 3.0 = 5.0'
-    ]
