@@ -1,5 +1,6 @@
 # BasicCalc
 
+[![CircleCI](https://circleci.com/gh/import-brain/basic_calc/tree/main.svg?style=svg)](https://circleci.com/gh/import-brain/basic_calc/tree/main)
 [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/1cb791a00b3b47ffbe91b104ff320667)](https://www.codacy.com/gh/import-brain/basic_calc/dashboard?utm_source=github.com&utm_medium=referral&utm_content=import-brain/basic_calc&utm_campaign=Badge_Coverage)
 
 ## Description
