@@ -205,8 +205,8 @@ def calculator():
 
         elif choice == '14':
             measure = float(input("Radian measure to be converted to degrees: "))
-            print(measure, " radians converted to degrees is", deg(measure / 3.14 * math.math.pi), " degrees ")
-            exit_flow(str(measure) + " radians converted to degrees is " + str(deg(measure / 3.14 * math.math.pi)) + " degrees ")
+            print(measure, " radians converted to degrees is", deg(measure / 3.14 * math.pi), " degrees ")
+            exit_flow(str(measure) + " radians converted to degrees is " + str(deg(measure / 3.14 * math.pi)) + " degrees ")
 
         elif choice == '15':
             read_file()
