@@ -1,5 +1,7 @@
 # BasicCalc
 
+[![Codacy Badge](https://app.codacy.com/project/badge/Coverage/1cb791a00b3b47ffbe91b104ff320667)](https://www.codacy.com/gh/import-brain/basic_calc/dashboard?utm_source=github.com&utm_medium=referral&utm_content=import-brain/basic_calc&utm_campaign=Badge_Coverage)
+
 ## Description
 
 BasicCalc is a small, command-line calculator that performs the standard four mathematical functions and more (remainder, circumference of circle given radius, etc.) written using Python3. 🧮
