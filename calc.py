@@ -4,69 +4,110 @@ import sys
 
 import time
 
-# adding
 def add(x, y):
+    """
+    adds two numbers together
+    parameters: x, y
+    """
     return x + y
 
-# subtracting
-
 def subtract(x, y):
+    """
+    subtracts two numbers
+    parameters: x, y
+    """
     return x - y
 
-# multiplying
-
 def multiply(x, y):
+    """
+    multiplies two numbers
+    parameters: x, y
+    """
     return x * y
 
-# dividing
-
 def divide(x, y):
+    """
+    divides two numbers
+    parameters: x, y
+    """
     return x / y
 
-# exponentiation
-
 def exponent(x, y):
+    """
+    raises a number to the power of another
+    parameters: x, y
+    """
     return x ** y
 
-# modulo/remainder/whatever you want to call it
-
 def modulo(x, y):
+    """
+    returns the remainder of x divided by y
+    parameters: x, y
+    """
     return x % y
 
-# square root
-
 def sqrroot(x):
+    """
+    returns the square root of x
+    parameters: x
+    """
     return math.sqrt(x)
 
-# circumference
+def circumference(d):
+    """
+    returns the circumference of a circle with diameter d
+    parameters: d
+    """
+    return math.pi * d
 
-def circumference(x):
-    return math.pi * x
-
-# area of circle
-
-def circle_area(x):
-    return math.pi * (x ** 2)
-
-# sin, cos, tan
+def circle_area(r):
+    """
+    returns the area of a circle with radius r
+    parameters: r
+    """
+    return math.pi * (r ** 2)
 
 def sin(x):
+    """
+    returns the sine of a number
+    parameters: x
+    """
     return math.sin(x)
 
 def cos(x):
+    """
+    returns the cosine of a number
+    parameters: x
+    """
     return math.cos(x)
 
 def tan(x):
+    """
+    returns the tangent of a number
+    parameters: x
+    """
     return math.tan(x)
 
 def rad(x):
+    """
+    returns the radian equivalent of a degree angle
+    parameters: x
+    """
     return math.radians(x)
 
 def deg(x):
+    """
+    returns the degree equivalent of a radian angle
+    parameters: x
+    """
     return math.degrees(x)
 
 def calculator():
-    def rad_or_degree(): # rad or degree choice picker function
+    def rad_or_degree():
+        """
+        rad/degree picker function,
+        user picks whether to use radians or degrees
+        """
         rad_or_degree = input("Degrees or radians? Enter 0 for degrees, 1 for radians: ")
 
         if rad_or_degree != '1' and rad_or_degree != '0':
@@ -218,7 +259,11 @@ def calculator():
             calculator()
 
 def exit_flow(printed_message: str):
-    
+    """
+    This function prints the messages
+    that are required for control flow,
+    e.g. user wishes to exit
+    """
     if printed_message != "15": # if user chooses to read calculations from storage, don't prompt user to save calculation
         save_choice = input("Do you wish to save your calculation to local storage? (Y for yes, N for no) ")
 
@@ -244,6 +289,10 @@ def exit_flow(printed_message: str):
         exit_flow("x")
 
 def write_file(what_to_write: str):
+        """
+        This function writes the calculation to a file
+        parameters: what_to_write
+        """
         file_name = str(input("Desired file name: ") + ".txt")
         try: # try to create file, if file already exists (IOError),
             # go into append mode, and if no error, also go into append mode
@@ -258,6 +307,10 @@ def write_file(what_to_write: str):
         print("Calculation saved to ", file_name)
 
 def read_file():
+    """
+    This function reads calculations from a file
+    parameters: none
+    """
     file_name = str(input("Which storage file would you like to read? ") + ".txt")
     try:
         with open(file_name, mode='r') as file_object:
