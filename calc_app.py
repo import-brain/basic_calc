@@ -2,7 +2,6 @@ import sys
 from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget, QGridLayout
 from PyQt5.QtWidgets import QPushButton, QLineEdit, QSizePolicy
 
-
 class Calculator(QMainWindow):
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -18,7 +17,6 @@ class Calculator(QMainWindow):
             '*{background-color: white; color: #000; font-size: 45px;}')
         self.display.setSizePolicy(QSizePolicy.Preferred, QSizePolicy.Expanding)
 
-        
         self.add_btn(QPushButton('7'), 1, 0, 1, 1)
         self.add_btn(QPushButton('8'), 1, 1, 1, 1)
         self.add_btn(QPushButton('9'), 1, 2, 1, 1)

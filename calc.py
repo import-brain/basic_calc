@@ -143,7 +143,7 @@ def calculator():
                 else:
                     print("The remainder/modulo of", number_1, "and", number_2, "is", modulo(number_1, number_2))
                     exit_flow("The remainder/modulo of" + str(number_1) + "and" + str(number_2) + "is" + str(modulo(number_1, number_2)))
-        
+
         if choice == '7':
             number_sqr = float(input("Enter number:"))
             print("The square root of", number_sqr, "is", sqrroot(number_sqr))
@@ -167,7 +167,7 @@ def calculator():
                 exit_flow("The sine of " + str(x) + " degrees is " + str(round(sin(math.radians(x)), 3)))
             elif type_choice == 1:
                 print("The sine of ", x, " radians is ", round(sin(x), 3))
-                exit_flow("The sine of " + str(x) + " radians is " + str(round(sin(x), 3))) 
+                exit_flow("The sine of " + str(x) + " radians is " + str(round(sin(x), 3)))
 
         elif choice == '11':
             type_choice = rad_or_degree()
@@ -210,13 +210,12 @@ def calculator():
 
         elif choice == '15':
             read_file()
-            exit_flow("15")        
+            exit_flow("15")
         
         else: #  if operation choice is not within the range of 1-15, return error message to user and prompt them again
             print("Invalid operation selected, please try again")
             time.sleep(2)
             calculator()
-
 
 def exit_flow(printed_message: str):
     
@@ -228,6 +227,10 @@ def exit_flow(printed_message: str):
             time.sleep(1)
         elif save_choice in ('n', 'N', 'no', 'No'):
             pass
+        else:
+            print("Invalid input, please try again")
+            time.sleep(1)
+            exit_flow(printed_message)
     
     exit_choice = input("Exit? Or perform another calculation? (Y for another calculation, N for exit) ")
 
@@ -242,8 +245,10 @@ def exit_flow(printed_message: str):
 
 def write_file(what_to_write: str):
         file_name = str(input("Desired file name: ") + ".txt")
-        try: # try to create file, if file already exists (IOError), go into append mode, and if no error, also go into append mode
+        try: # try to create file, if file already exists (IOError),
+            # go into append mode, and if no error, also go into append mode
             save_file = open(file_name, 'x')
+            save_file.write(what_to_write)
         except IOError:
             with open(file_name, mode='a') as file_object:
                 print(what_to_write, file=file_object)
