@@ -4,98 +4,98 @@ import sys
 
 import time
 
-def add(x, y):
+def add(x: float, y: float):
     """
     adds two numbers together
     parameters: x, y
     """
     return x + y
 
-def subtract(x, y):
+def subtract(x: float, y: float):
     """
     subtracts two numbers
     parameters: x, y
     """
     return x - y
 
-def multiply(x, y):
+def multiply(x: float, y: float):
     """
     multiplies two numbers
     parameters: x, y
     """
     return x * y
 
-def divide(x, y):
+def divide(x: float, y: float):
     """
     divides two numbers
     parameters: x, y
     """
     return x / y
 
-def exponent(x, y):
+def exponent(x: float, y: float):
     """
     raises a number to the power of another
     parameters: x, y
     """
     return x ** y
 
-def modulo(x, y):
+def modulo(x: float, y: float):
     """
     returns the remainder of x divided by y
     parameters: x, y
     """
     return x % y
 
-def sqrroot(x):
+def sqrroot(x: float):
     """
     returns the square root of x
     parameters: x
     """
     return math.sqrt(x)
 
-def circumference(d):
+def circumference(d: float):
     """
     returns the circumference of a circle with diameter d
     parameters: d
     """
     return math.pi * d
 
-def circle_area(r):
+def circle_area(r: float):
     """
     returns the area of a circle with radius r
     parameters: r
     """
     return math.pi * (r ** 2)
 
-def sin(x):
+def sin(x: float):
     """
     returns the sine of a number
     parameters: x
     """
     return math.sin(x)
 
-def cos(x):
+def cos(x: float):
     """
     returns the cosine of a number
     parameters: x
     """
     return math.cos(x)
 
-def tan(x):
+def tan(x: float):
     """
     returns the tangent of a number
     parameters: x
     """
     return math.tan(x)
 
-def rad(x):
+def rad(x: float):
     """
     returns the radian equivalent of a degree angle
     parameters: x
     """
     return math.radians(x)
 
-def deg(x):
+def deg(x: float):
     """
     returns the degree equivalent of a radian angle
     parameters: x
