@@ -26,11 +26,9 @@ Please follow the established naming conventions present in the code, it makes i
 - [x] Create new release (use PyInstaller --onefile argument to create less messy rar files)
 - [x] Make linux binaries/executables with next release
 - [x] Add ability for program to save all calculations done to a file (python read/write)
-- [x] Refactor if-else-elif statements to use new "match" statement introduced in Python 3.10
-- [x] Add a safety feature (not just intentionally crashing users) for "match" statements when user is not using Python 3.10 or above (add a legacy component that still        uses if-else-elif statements could be a good route)
-- [x] Remove redundant code
+- [ ] Refactor if-else-elif statements to use new "match" statement introduced in Python 3.10
+- [ ] Add a safety feature (not just intentionally crashing users) for "match" statements when user is not using Python 3.10 or above (add a legacy component that still        uses if-else-elif statements could be a good route)
 - [ ] Improve test coverage (see top of README for Codacy test coverage button)
 - [ ] Add coverage report functionality
 - [ ] Add ability for program to read from config file for options (e.g. rounding place, save to file, etc.)
-- [x] Reconstruct program structure to support switch arguments based function as a precursor to using TKinter
 - [ ] Possibly in the future: Rebuild app using TKinter / or construct a front end enclosing the current code, given that it can be used in a headless environment
