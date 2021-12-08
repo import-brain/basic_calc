@@ -6,8 +6,9 @@
 
 ## Description
 
-BasicCalc is a small, command-line calculator that performs
-the standard four mathematical functions and more (remainder, circumference of circle given radius, etc.) written using Python3. 🧮
+BasicCalc is a small, command-line calculator that performs\\
+the standard four mathematical functions and more (remainder,/ circumference of circle given radius, etc.) written using Python3. 🧮\
+*See full documentation at https://basic-calc-docs-876p1z64p-import-brain.vercel.app/.*
 
 ## Installation
 
