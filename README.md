@@ -8,7 +8,7 @@
 
 BasicCalc is a small, command-line calculator that performs\\
 the standard four mathematical functions and more (remainder,/ circumference of circle given radius, etc.) written using Python3. 🧮\
-*See full documentation at basic-calc-docs.vercel.app.*
+*See full documentation at https://basic-calc-docs.vercel.app/.*
 
 ## Installation
 
