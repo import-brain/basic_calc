@@ -223,7 +223,7 @@ def calculator():
         elif choice == '12':
             type_choice = rad_or_degree()
             x = float(input("Number to be tanned: "))
-            
+
             if type_choice == 0:
                 if cos(math.radians(x)) == 0:
                     print("Tangent of ", x, " degrees is undefined")
@@ -252,7 +252,7 @@ def calculator():
         elif choice == '15':
             read_file()
             exit_flow("15")
-        
+
         else: #  if operation choice is not within the range of 1-15, return error message to user and prompt them again
             print("Invalid operation selected, please try again")
             time.sleep(2)
@@ -276,7 +276,7 @@ def exit_flow(printed_message: str):
             print("Invalid input, please try again")
             time.sleep(1)
             exit_flow(printed_message)
-    
+
     exit_choice = input("Exit? Or perform another calculation? (Y for another calculation, N for exit) ")
 
     if exit_choice in ('y', 'Y', 'yes', 'Yes'):
@@ -323,7 +323,7 @@ def read_file():
         time.sleep(1)
         read_file()
 
-    
+
 if __name__ == "__main__":
     calculator()
 # :)
