@@ -119,6 +119,9 @@ def calculator():
         elif rad_or_degree == '0':
             return 0
 
+    def decide(choice : str):
+        pass
+
     math.pi = 3.14
 
     # User prompt to select operation
